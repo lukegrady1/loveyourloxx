@@ -29,7 +29,7 @@ npm run lint
 
 The form posts to `BIZ.formEndpoint` in `src/data/site.ts`.
 
-- **Netlify:** nothing to do. The form has `data-netlify="true"` and a honeypot; submissions appear in the Netlify dashboard. Set up an email notification there.
+- **Netlify:** nothing to do. The Next.js runtime needs a static form definition, which lives in `public/__forms.html`; the React form posts to it and submissions appear under Forms in the Netlify dashboard. Set up an email notification there. If you add or rename a field, update both files.
 - **Vercel / anywhere else:** create a free form at [formspree.io](https://formspree.io), paste the endpoint URL into `formEndpoint`. The form then submits via fetch and shows an inline thank-you.
 
 ## Adding before & after photos

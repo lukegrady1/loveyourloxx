@@ -11,20 +11,23 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const endpointConfigured = !BIZ.formEndpoint.includes("YOUR_FORM_ID");
+  const useFormspree = !BIZ.formEndpoint.includes("YOUR_FORM_ID");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    // Without a configured endpoint we let the browser submit normally (Netlify Forms picks this up).
-    if (!endpointConfigured) return;
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
     setStatus("sending");
     try {
-      const res = await fetch(BIZ.formEndpoint, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
+      const res = useFormspree
+        ? // Formspree (or any JSON-accepting endpoint)
+          await fetch(BIZ.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
+        : // Netlify Forms: post url-encoded to the static form definition in public/__forms.html
+          await fetch("/__forms.html", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+          });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
     } catch {
@@ -46,15 +49,7 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      className="grid gap-6"
-      method="POST"
-      action={BIZ.formEndpoint}
-      onSubmit={onSubmit}
-      data-netlify="true"
-      name="contact"
-      netlify-honeypot="company"
-    >
+    <form className="grid gap-6" method="POST" name="contact" onSubmit={onSubmit}>
       <input type="hidden" name="form-name" value="contact" />
       <input type="hidden" name="_subject" value="New consultation request from loveyourloxx.com" />
       <p className="absolute -left-[9999px]" aria-hidden="true">

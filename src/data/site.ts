@@ -22,7 +22,11 @@ export const BIZ = {
     "https://www.google.com/maps/search/?api=1&query=2334+N+Scottsdale+Rd+%23117+Scottsdale+AZ+85257",
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.0215849167944!2d-111.9275991!3d33.4747888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0afc453188e5%3A0x2613b8dd36fabc6e!2sLove%20Your%20Loxx%20Hair%20Extension%20Salon!5e0!3m2!1sen!2sus!4v1790874607473!5m2!1sen!2sus",
-  /** Form endpoint. Replace YOUR_FORM_ID with a Formspree form id, or leave as-is on Netlify (Netlify Forms picks it up automatically). */
+  /**
+   * Contact form endpoint.
+   * Leave as-is on Netlify: the form posts to /__forms.html and Netlify Forms collects it.
+   * Elsewhere, replace YOUR_FORM_ID with a Formspree form id.
+   */
   formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
 } as const;
 

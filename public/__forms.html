@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Forms</title></head>
+<body>
+  <!--
+    Static form definition for Netlify Forms. Netlify reads this file at build time
+    to register the "contact" form and its fields. The React form in
+    src/components/ContactForm.tsx posts to /__forms.html with the same field names.
+    Keep the two in sync.
+  -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" hidden>
+    <input type="hidden" name="form-name" value="contact">
+    <input type="hidden" name="_subject">
+    <input type="text" name="company">
+    <input type="text" name="name">
+    <input type="tel" name="phone">
+    <input type="email" name="email">
+    <select name="service"><option>Hair extension consultation</option></select>
+    <select name="method"><option>Micro Bead</option></select>
+    <textarea name="goals"></textarea>
+    <input type="text" name="natural_hair">
+    <input type="checkbox" name="texture[]" value="Fine">
+    <select name="timeline"><option>No preference</option></select>
+    <select name="contact_pref"><option>Text</option></select>
+  </form>
+</body>
+</html>
