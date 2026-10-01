@@ -116,7 +116,7 @@ export function Header() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-ink text-cream flex flex-col justify-center px-[var(--gutter)] transition-[opacity,transform,visibility] duration-300 ${
+        className={`fixed inset-0 z-40 bg-ink text-cream flex flex-col justify-start overflow-y-auto overscroll-contain px-[var(--gutter)] pt-[calc(var(--header-h)+36px+1.5rem)] pb-10 transition-[opacity,transform,visibility] duration-300 ${
           open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
         }`}
       >
