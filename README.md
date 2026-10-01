@@ -39,4 +39,6 @@ Drop a square `ba-NN.jpg` (≈1200px) and a `ba-NN-thumb.jpg` (≈640px) into `p
 ## Deploy
 
 Vercel: import the repo, no config needed. Netlify: build command `npm run build`, uses the Next.js runtime automatically.
-Point `www.loveyourloxx.com` at the host and keep the `SITE_URL` in `src/data/site.ts` in sync.
+Absolute URLs (share image, sitemap, structured data) follow `SITE_URL` in `src/data/site.ts`, which reads `NEXT_PUBLIC_SITE_URL`, then Netlify's `URL`, then falls back to `https://www.loveyourloxx.com`. On Netlify nothing needs setting: it uses the `*.netlify.app` address until the custom domain is attached, then switches automatically.
+
+**Netlify Forms:** form detection must be enabled once in the Netlify UI (Project configuration → Forms → Enable form detection), then redeploy. Without it, submissions return 404.

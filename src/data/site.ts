@@ -1,4 +1,10 @@
-export const SITE_URL = "https://www.loveyourloxx.com";
+/**
+ * Canonical origin used for absolute URLs (Open Graph image, sitemap, JSON-LD).
+ * Resolved at build time: an explicit NEXT_PUBLIC_SITE_URL wins, then Netlify's
+ * primary site URL (the *.netlify.app address now, the custom domain once attached),
+ * then the production domain.
+ */
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "https://www.loveyourloxx.com").replace(/\/$/, "");
 
 export const BIZ = {
   name: "Love Your Loxx",
