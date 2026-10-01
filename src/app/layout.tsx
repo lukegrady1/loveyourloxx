@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Love Your Loxx",
-    images: [{ url: "/img/hero-blonde.jpg", width: 2200, height: 1467 }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Love Your Loxx — Hair Extensions by Ms Manae, Scottsdale" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/og.jpg"] },
   icons: { icon: "/img/favicon.svg" },
 };
 
@@ -34,7 +34,7 @@ const jsonLd = {
     "Professional hair extensions in Scottsdale, Arizona. Micro bead, fusion, tape-in and hand tied methods by Ms Manae, with 15+ years of experience.",
   url: `${SITE_URL}/`,
   telephone: BIZ.cellTel,
-  image: `${SITE_URL}/img/hero-blonde.jpg`,
+  image: `${SITE_URL}/og.jpg`,
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
