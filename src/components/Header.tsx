@@ -42,19 +42,19 @@ export function Header() {
 
       {/* Top bar */}
       <div className="bg-ink text-cream-2 font-label text-[0.66rem] tracking-[0.12em] uppercase">
-        <div className="wrap flex items-center justify-center md:justify-between gap-4 min-h-9">
+        <div className="wrap flex items-center justify-center xl:justify-between gap-4 min-h-9">
           <div className="flex flex-wrap justify-center gap-x-3">
-            <span>
+            <span className="whitespace-nowrap">
               {BIZ.street}, {BIZ.city}
             </span>
-            <span className="hidden sm:inline">
+            <span className="hidden md:inline whitespace-nowrap">
               <span className="text-gold mr-3">·</span>
               {BIZ.hours} · {BIZ.hoursNote}
             </span>
           </div>
-          <div className="hidden md:flex gap-x-3">
-            <span>Free consultations</span>
-            <span>
+          <div className="hidden xl:flex gap-x-3">
+            <span className="whitespace-nowrap">Free consultations</span>
+            <span className="whitespace-nowrap">
               <span className="text-gold mr-3">·</span>
               <a href={`tel:${BIZ.salonTel}`} className="hover:text-gold">
                 Salon {BIZ.salon}
@@ -94,8 +94,8 @@ export function Header() {
             <a href={`tel:${BIZ.cellTel}`} className="hidden xl:inline font-label font-medium text-[0.95rem] tracking-[0.02em] whitespace-nowrap hover:text-gold">
               {BIZ.cell}
             </a>
-            <Link href="/contact" className="btn hidden xl:inline-flex !px-5 !py-3 !text-[0.72rem]">
-              Book a consultation
+            <Link href="/book" className="btn hidden xl:inline-flex whitespace-nowrap !px-5 !py-3 !text-[0.72rem]">
+              Book online
             </Link>
             <button
               type="button"
@@ -116,7 +116,8 @@ export function Header() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-ink text-cream flex flex-col justify-start overflow-y-auto overscroll-contain px-[var(--gutter)] pt-[calc(var(--header-h)+36px+1.5rem)] pb-10 transition-[opacity,transform,visibility] duration-300 ${
+        style={{ paddingTop: `calc(${scrolled ? 68 : 120}px + 1rem)` }}
+        className={`fixed inset-0 z-40 bg-ink text-cream flex flex-col overflow-y-auto overscroll-contain px-[var(--gutter)] pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[opacity,transform,visibility] duration-300 ${
           open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
         }`}
       >
@@ -128,7 +129,7 @@ export function Header() {
               aria-current={isCurrent(href) ? "page" : undefined}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${0.06 + i * 0.05}s` : "0s" }}
-              className={`block py-1.5 border-b border-white/[0.08] font-display text-[clamp(2rem,8vw,3rem)] leading-tight transition-[opacity,transform] duration-300 ${
+              className={`block py-[3px] border-b border-white/[0.08] font-display text-[clamp(1.6rem,min(7.5vw,4.4vh),2.75rem)] leading-tight transition-[opacity,transform] duration-300 ${
                 open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
               } ${isCurrent(href) ? "text-gold font-light" : "text-cream"}`}
             >
@@ -136,12 +137,14 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="mt-8 flex flex-col gap-4">
-          <span className="label !text-gold">Call or text Ms Manae</span>
-          <a href={`tel:${BIZ.cellTel}`} className="font-label font-medium text-[1.6rem] tracking-[0.01em]">
-            {BIZ.cell}
-          </a>
-          <Socials />
+        <div className="mt-auto pt-5">
+          <span className="label !text-gold block">Call or text Ms Manae</span>
+          <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+            <a href={`tel:${BIZ.cellTel}`} className="font-label font-medium text-[1.3rem] tracking-[0.01em]">
+              {BIZ.cell}
+            </a>
+            <Socials />
+          </div>
         </div>
       </div>
     </>

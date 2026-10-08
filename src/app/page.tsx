@@ -51,8 +51,8 @@ export default function HomePage() {
                   {BIZ.cellDisplay}
                 </a>
               </div>
-              <Link href="/contact" className="btn btn-light">
-                Request a quote <ArrowIcon />
+              <Link href="/book" className="btn btn-light">
+                Book online <ArrowIcon />
               </Link>
             </div>
           </div>

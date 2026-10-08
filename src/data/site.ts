@@ -34,6 +34,12 @@ export const BIZ = {
    * Elsewhere, replace YOUR_FORM_ID with a Formspree form id.
    */
   formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
+  /**
+   * GoHighLevel online booking. The group widget lists every service calendar
+   * in the "Love Your Loxx Services" menu (sub-account ygfr7kWTS92ddkWf3UC8).
+   */
+  bookingUrl: "https://api.leadconnectorhq.com/widget/groups/loveyourloxx-scottsdale",
+  bookingEmbedScript: "https://link.msgsndr.com/js/form_embed.js",
 } as const;
 
 export const NAV = [
@@ -43,5 +49,6 @@ export const NAV = [
   { href: "/gallery", label: "Before & After" },
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
+  { href: "/book", label: "Book Online" },
   { href: "/contact", label: "Contact" },
 ] as const;

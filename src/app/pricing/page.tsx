@@ -38,7 +38,7 @@ const POLICIES = [
   ["Standard removals are free", "A normal removal takes 20 to 45 minutes depending on the method and is included. I don’t use acetone-based removers, so it’s gentle on your hair."],
   ["Overdue removals", "If a set is worn past the recommended inch of regrowth, the new growth can mat and the removal can take up to two hours. Those removals are charged at $50 per hour. Coming in on schedule avoids this entirely."],
   ["Reusing your hair", "Quality hair that has been properly cared for can be reused for future sets. I’ll teach you how to care for it at your first appointment."],
-  ["Booking", `The salon is open Monday through Sunday, 9am to 6pm, by appointment. Call or text ${BIZ.cell} to schedule.`],
+  ["Booking", `The salon is open Monday through Sunday, 9am to 6pm, by appointment. Book online, or call or text ${BIZ.cell} to schedule.`],
   ["Payment", "Payment is due at the time of service. Ask about payment options when you book."],
 ];
 
@@ -61,6 +61,9 @@ export default function PricingPage() {
           </div>
           <Link href="/contact" className="btn btn-light">
             Request a quote online <ArrowIcon />
+          </Link>
+          <Link href="/book" className="link !text-cream-2 hover:!text-gold">
+            Or book a free consultation <ArrowIcon />
           </Link>
         </div>
       </PageHero>

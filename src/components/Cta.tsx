@@ -11,7 +11,7 @@ export function Cta({
       Ready for <em>longer, fuller</em> hair?
     </>
   ),
-  body = "Every new client starts with a free consultation. Call or text Ms Manae, or send a few details through the contact form and she will get back to you with a quote.",
+  body = "Every new client starts with a free consultation. Book it online in a minute, call or text Ms Manae, or send a few details through the contact form and she will get back to you with a quote.",
 }: Props) {
   return (
     <section className="cta-glow relative overflow-hidden bg-terracotta text-cream">
@@ -25,8 +25,8 @@ export function Cta({
           <a href={`tel:${BIZ.cellTel}`} className="font-label font-medium text-2xl tracking-[0.01em] text-cream hover:text-blush">
             {BIZ.cell}
           </a>
-          <Link href="/contact" className="btn btn-paper">
-            Request a quote <ArrowIcon />
+          <Link href="/book" className="btn btn-paper">
+            Book online <ArrowIcon />
           </Link>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Onest } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/Reveal";
+import { MobileBookBar } from "@/components/MobileBookBar";
 import { BIZ, SITE_URL } from "@/data/site";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <MobileBookBar />
         <RevealObserver />
       </body>
     </html>

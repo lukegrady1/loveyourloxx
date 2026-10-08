@@ -6,7 +6,7 @@ import { ArrowIcon } from "./Icons";
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-stone-2 pt-[clamp(3rem,6vw,5rem)] pb-8">
+    <footer className="bg-ink text-stone-2 pt-[clamp(3rem,6vw,5rem)] pb-24 xl:pb-8">
       <div className="wrap grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
         <div>
           <Brand className="mb-4" />
@@ -54,9 +54,14 @@ export function Footer() {
               {BIZ.salon}
             </a>
           </p>
-          <Link href="/contact" className="link !text-cream-2 hover:!text-gold">
-            Send a message <ArrowIcon />
-          </Link>
+          <div className="flex flex-col gap-2 items-start">
+            <Link href="/book" className="link !text-cream-2 hover:!text-gold">
+              Book online <ArrowIcon />
+            </Link>
+            <Link href="/contact" className="link !text-cream-2 hover:!text-gold">
+              Send a message <ArrowIcon />
+            </Link>
+          </div>
         </div>
         <div className="sm:col-span-2 lg:col-span-4 border-t border-white/[0.08] mt-8 pt-6 flex flex-wrap justify-between gap-4 font-label text-[0.8rem] tracking-[0.12em] uppercase">
           <span>

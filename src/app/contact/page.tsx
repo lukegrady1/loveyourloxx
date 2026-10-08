@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { ArrowIcon } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
@@ -26,7 +27,14 @@ export default function ContactPage() {
         <div className="wrap grid lg:grid-cols-[5fr_7fr] gap-[clamp(2.5rem,6vw,6rem)] items-start">
           <aside className="reveal grid gap-8 lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
             <div className="grid gap-1 bg-cream-2 border-l-2 border-terracotta p-6">
-              <span className="label mb-1">Fastest: call or text Ms Manae</span>
+              <span className="label mb-1">Book online</span>
+              <p className="text-ink-3 m-0">Pick a service and a time that suits you. Consultations and standard removals are free.</p>
+              <Link href="/book" className="btn mt-3 self-start">
+                See available times <ArrowIcon />
+              </Link>
+            </div>
+            <div className="grid gap-1 bg-cream-2 border-l-2 border-terracotta p-6">
+              <span className="label mb-1">Or call or text Ms Manae</span>
               <a href={`tel:${BIZ.cellTel}`} className="font-label text-[1.5rem] tracking-[0.05em] text-ink hover:text-terracotta">
                 {BIZ.cell}
               </a>
