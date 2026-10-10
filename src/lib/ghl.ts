@@ -60,29 +60,41 @@ async function ghl<T>(method: "GET" | "POST" | "PUT" | "DELETE", path: string, b
   return (text ? JSON.parse(text) : {}) as T;
 }
 
-export type UpsertInput = {
+export type ContactFields = {
   firstName: string;
   phone: string;
   email: string;
   source: string;
-  tags: string[];
   customFields: { key: string; field_value: string }[];
 };
 
-type UpsertResponse = {
-  new: boolean;
-  contact: { id: string; tags?: string[] };
-};
+export type Contact = { id: string; phone?: string | null; email?: string | null; tags?: string[] };
 
 /**
- * Create-or-update a contact (GHL dedupes on phone/email). Returns the id and
- * whether this was a brand-new contact.
+ * Find the contact that already owns this phone number, if any. GHL's upsert
+ * matches on email before phone, so a returning client who uses a new email
+ * would get a second record with the phone silently dropped (phones are unique
+ * per location). Looking up by phone first keeps one record per person.
  */
-export function upsertContact(input: UpsertInput) {
-  return ghl<UpsertResponse>("POST", "/contacts/upsert", {
+export async function findContactByPhone(phone: string): Promise<Contact | null> {
+  const q = new URLSearchParams({ locationId: GHL_LOCATION_ID, number: phone });
+  const res = await ghl<{ contact: Contact | null }>("GET", `/contacts/search/duplicate?${q}`);
+  return res.contact ?? null;
+}
+
+/**
+ * Create-or-update a contact (GHL dedupes on email, then phone). Returns the id
+ * and whether this was a brand-new contact.
+ */
+export function upsertContact(input: ContactFields) {
+  return ghl<{ new: boolean; contact: Contact }>("POST", "/contacts/upsert", {
     locationId: GHL_LOCATION_ID,
     ...input,
   });
+}
+
+export function updateContact(contactId: string, fields: Partial<ContactFields>) {
+  return ghl<{ contact: Contact }>("PUT", `/contacts/${contactId}`, fields);
 }
 
 export function addNote(contactId: string, body: string) {
@@ -95,14 +107,4 @@ export function removeTags(contactId: string, tags: string[]) {
 
 export function addTags(contactId: string, tags: string[]) {
   return ghl<unknown>("POST", `/contacts/${contactId}/tags`, { tags });
-}
-
-/**
- * GHL's "Contact Tag added" workflow trigger only fires when the tag is newly
- * applied. A returning contact who already carries the tag would be silent, so
- * pull it off and put it back to re-fire the workflow.
- */
-export async function retriggerTag(contactId: string, tag: string) {
-  await removeTags(contactId, [tag]);
-  await addTags(contactId, [tag]);
 }

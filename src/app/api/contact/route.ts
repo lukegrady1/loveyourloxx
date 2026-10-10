@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { FIELD_KEYS, INQUIRY_TAG, GhlError, addNote, retriggerTag, upsertContact } from "@/lib/ghl";
+import { FIELD_KEYS, INQUIRY_TAG, GhlError, addNote, addTags, findContactByPhone, removeTags, updateContact, upsertContact } from "@/lib/ghl";
 
 /**
  * POST /api/contact
@@ -132,21 +132,38 @@ export async function POST(req: Request) {
   ].filter((c) => c.field_value);
 
   try {
-    const result = await upsertContact({
-      firstName: f.name,
-      phone,
-      email: f.email,
-      source: SOURCE,
-      tags: [INQUIRY_TAG],
-      customFields,
-    });
-    const id = result.contact.id;
+    const fields = { firstName: f.name, phone, email: f.email, source: SOURCE, customFields };
+
+    // Phone is the identifier that matters for a salon. If someone we already
+    // know submits with a different email, update their record rather than
+    // letting GHL's email-first upsert create a duplicate without a phone.
+    const existing = await findContactByPhone(phone);
+    let id: string;
+    let isNew = false;
+    if (existing) {
+      id = existing.id;
+      try {
+        await updateContact(id, fields);
+      } catch (err) {
+        // The new email already belongs to another contact. GHL rejects the whole
+        // update, so save everything else and leave the email in the note.
+        if (!(err instanceof GhlError && err.status === 400 && /duplicat/i.test(err.body))) throw err;
+        await updateContact(id, { ...fields, email: undefined });
+      }
+    } else {
+      const result = await upsertContact(fields);
+      id = result.contact.id;
+      isNew = result.new;
+    }
 
     // Note first so it's on the record when the workflow fires.
     await addNote(id, buildNote(f, phone));
 
-    // Returning contact that already had the tag: re-apply it so the workflow runs again.
-    if (!result.new) await retriggerTag(id, INQUIRY_TAG);
+    // Tag last, once every field is saved, so the workflow sees the full record.
+    // GHL's "tag added" trigger only fires when the tag is newly applied, so a
+    // returning contact gets it removed and re-added.
+    if (!isNew) await removeTags(id, [INQUIRY_TAG]);
+    await addTags(id, [INQUIRY_TAG]);
 
     return NextResponse.json({ ok: true });
   } catch (err) {
