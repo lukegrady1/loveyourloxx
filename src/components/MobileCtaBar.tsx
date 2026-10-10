@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { QUOTE_HREF } from "@/data/site";
 import { ArrowIcon } from "./Icons";
 
 /**
- * Sticky "Book online" button for phones and tablets, where the header's
- * booking button is hidden. Slides up once the visitor scrolls past the top
- * of the page and stays out of the way on the booking page itself.
+ * Sticky "Request a quote" button for phones and tablets, where the header's
+ * button is hidden. Slides up once the visitor scrolls past the top of the
+ * page and stays out of the way on the contact page, where the form lives.
  */
-export function MobileBookBar() {
+export function MobileCtaBar() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
@@ -25,7 +26,7 @@ export function MobileBookBar() {
     };
   }, [pathname]);
 
-  if (pathname.startsWith("/book")) return null;
+  if (pathname.startsWith("/contact")) return null;
 
   return (
     <div
@@ -36,10 +37,10 @@ export function MobileBookBar() {
       }`}
     >
       <Link
-        href="/book"
+        href={QUOTE_HREF}
         className="btn pointer-events-auto mx-auto !px-8 !py-3.5 shadow-[0_10px_30px_rgba(27,25,23,0.28)]"
       >
-        Book online now <ArrowIcon />
+        Request a free quote <ArrowIcon />
       </Link>
     </div>
   );

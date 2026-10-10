@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BIZ, NAV } from "@/data/site";
+import { BIZ, NAV, QUOTE_HREF } from "@/data/site";
 import { Brand } from "./Brand";
 import { Socials } from "./Socials";
 
@@ -94,8 +94,8 @@ export function Header() {
             <a href={`tel:${BIZ.cellTel}`} className="hidden xl:inline font-label font-medium text-[0.95rem] tracking-[0.02em] whitespace-nowrap hover:text-gold">
               {BIZ.cell}
             </a>
-            <Link href="/book" className="btn hidden xl:inline-flex whitespace-nowrap !px-5 !py-3 !text-[0.72rem]">
-              Book online
+            <Link href={QUOTE_HREF} className="btn hidden xl:inline-flex whitespace-nowrap !px-5 !py-3 !text-[0.72rem]">
+              Request a quote
             </Link>
             <button
               type="button"

@@ -3,12 +3,12 @@ import Link from "next/link";
 import { BookingWidget } from "@/components/BookingWidget";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
-import { BIZ } from "@/data/site";
+import { BIZ, QUOTE_HREF } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Book Online | Free Consultations & Hair Extension Appointments",
+  title: "Book Your Appointment Online",
   description:
-    "Book a free hair extension consultation, a new set of micro bead, fusion, tape-in or hand tied extensions, or a removal with Ms Manae in Scottsdale. Open 7 days, 9am to 6pm, by appointment.",
+    "Already have your quote from Ms Manae? Book your hair extension install, maintenance or removal online. Scottsdale, open 7 days, 9am to 6pm, by appointment. New clients start with a free quote.",
   alternates: { canonical: "/book" },
 };
 
@@ -24,8 +24,8 @@ const SERVICES = [
 ];
 
 const NOTES = [
-  "New to extensions? Start with a free consultation. Ms Manae will color-match your hair and confirm the right method and amount before you commit to a set.",
-  "Already know what you want? Book the set directly and we will confirm the details by text before your visit.",
+  "Book the service you and Ms Manae agreed on during your call. If you’re not sure which one, text her and she’ll point you to the right calendar.",
+  "Need a consultation in person first? Book the free consultation and bring inspiration photos if you have them.",
   "Removals are free when you come in on schedule, around one inch of regrowth.",
 ];
 
@@ -35,7 +35,7 @@ export default function BookPage() {
       <PageHero
         label="Book online"
         title={<>Pick a service. <em>Pick a time.</em></>}
-        lead="Choose what you need, see Ms Manae’s live availability, and lock in your appointment in under a minute. Consultations are always free."
+        lead="For clients who have already spoken with Ms Manae. Choose your service, see live availability, and lock in your appointment in under a minute."
         image="/img/hero-dark.jpg"
       >
         <div className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-2">
@@ -82,6 +82,15 @@ export default function BookPage() {
           </aside>
 
           <div className="reveal" data-delay="1">
+            <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 bg-cream-2 border-l-2 border-terracotta px-6 py-5 mb-6">
+              <p className="text-ink-3 m-0 max-w-[52ch]">
+                <strong className="text-ink">New here?</strong> Pricing depends on your hair and how much you need, so Ms Manae talks to every new
+                client before booking. Start with a free quote and she’ll call you.
+              </p>
+              <Link href={QUOTE_HREF} className="btn self-start">
+                Request a free quote <ArrowIcon />
+              </Link>
+            </div>
             <div className="booking-frame bg-cream border border-cream-3">
               <BookingWidget />
             </div>

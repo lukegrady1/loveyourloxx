@@ -8,7 +8,7 @@ import { Socials } from "@/components/Socials";
 import { GENERAL_FAQ } from "@/data/faqs";
 import { METHODS } from "@/data/methods";
 import { REVIEWS } from "@/data/reviews";
-import { BIZ } from "@/data/site";
+import { BIZ, QUOTE_HREF } from "@/data/site";
 import { getGalleryImages } from "@/lib/gallery";
 
 const HOME_PICKS = ["ba-04", "ba-07", "ba-24", "ba-29", "ba-32", "ba-13", "ba-52", "ba-16", "ba-33", "ba-39"];
@@ -51,8 +51,8 @@ export default function HomePage() {
                   {BIZ.cellDisplay}
                 </a>
               </div>
-              <Link href="/book" className="btn btn-light">
-                Book online <ArrowIcon />
+              <Link href={QUOTE_HREF} className="btn btn-light">
+                Request a free quote <ArrowIcon />
               </Link>
             </div>
           </div>

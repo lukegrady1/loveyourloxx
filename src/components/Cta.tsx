@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { BIZ } from "@/data/site";
+import { BIZ, QUOTE_HREF } from "@/data/site";
 import { ArrowIcon } from "./Icons";
 
 type Props = { title?: ReactNode; body?: ReactNode };
@@ -11,7 +11,7 @@ export function Cta({
       Ready for <em>longer, fuller</em> hair?
     </>
   ),
-  body = "Every new client starts with a free consultation. Book it online in a minute, call or text Ms Manae, or send a few details through the contact form and she will get back to you with a quote.",
+  body = "Every new client starts with a quick call. Send a few details through the form and Ms Manae will call you to talk through your hair, your options and your price. Once you have a plan, you can book your appointment online.",
 }: Props) {
   return (
     <section className="cta-glow relative overflow-hidden bg-terracotta text-cream">
@@ -25,8 +25,8 @@ export function Cta({
           <a href={`tel:${BIZ.cellTel}`} className="font-label font-medium text-2xl tracking-[0.01em] text-cream hover:text-blush">
             {BIZ.cell}
           </a>
-          <Link href="/book" className="btn btn-paper">
-            Book online <ArrowIcon />
+          <Link href={QUOTE_HREF} className="btn btn-paper">
+            Request a free quote <ArrowIcon />
           </Link>
         </div>
       </div>

@@ -27,10 +27,28 @@ npm run lint
 
 ## Contact form
 
-The form posts to `BIZ.formEndpoint` in `src/data/site.ts`.
+The form posts to `/api/contact` (`src/app/api/contact/route.ts`), which creates or updates the
+contact in GoHighLevel via `src/lib/ghl.ts`:
 
-- **Netlify:** nothing to do. The Next.js runtime needs a static form definition, which lives in `public/__forms.html`; the React form posts to it and submissions appear under Forms in the Netlify dashboard. Set up an email notification there. If you add or rename a field, update both files.
-- **Vercel / anywhere else:** create a free form at [formspree.io](https://formspree.io), paste the endpoint URL into `formEndpoint`. The form then submits via fetch and shows an inline thank-you.
+- name / phone / email → the contact record (GHL dedupes on phone and email)
+- service, method, goals, natural hair, texture, timeline, contact preference → contact custom
+  fields (`contact.service_interest`, `contact.preferred_extension_method`, `contact.extension_goals`,
+  `contact.natural_hair`, `contact.hair_texture`, `contact.install_timeline`, `contact.contact_preference`)
+- a formatted note with everything, on the contact's timeline
+- tag `website-inquiry`, which triggers the notification workflow in GHL. For a returning contact
+  the tag is removed and re-added so the workflow fires again.
+
+**Environment variables** (Netlify → Site configuration → Environment variables, and `.env.local` for dev):
+
+| Var | Value |
+| --- | --- |
+| `GHL_API_TOKEN` | GHL Private Integration Token (sub-account level) with Contacts read/write scopes |
+| `GHL_LOCATION_ID` | optional, defaults to the Love Your Loxx sub-account |
+
+The route rejects honeypot hits (hidden `company` field) with a fake success, validates name /
+phone / service, and returns 502 if GHL is unreachable. The browser also posts a copy to Netlify Forms
+(static definition in `public/__forms.html`) as a backup; if you add or rename a field, update the
+form component, the route and that file together.
 
 ## Adding before & after photos
 

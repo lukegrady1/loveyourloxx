@@ -11,35 +11,42 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const useFormspree = !BIZ.formEndpoint.includes("YOUR_FORM_ID");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     setStatus("sending");
+
+    // Primary: our API route creates the contact in GoHighLevel and tags it,
+    // which fires Ms Manae's notification workflow.
+    const ghl = fetch("/api/contact", { method: "POST", body: data, headers: { Accept: "application/json" } });
+
+    // Backup: Netlify Forms keeps a copy (static definition in public/__forms.html).
+    // Best-effort only; it never blocks or fails the submission.
+    const netlify = fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+    }).catch(() => null);
+
     try {
-      const res = useFormspree
-        ? // Formspree (or any JSON-accepting endpoint)
-          await fetch(BIZ.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        : // Netlify Forms: post url-encoded to the static form definition in public/__forms.html
-          await fetch("/__forms.html", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
-          });
+      const res = await ghl;
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
     } catch {
-      setStatus("error");
+      // If GHL is down but Netlify accepted it, the message still reached the inbox.
+      const backup = await netlify;
+      setStatus(backup?.ok ? "sent" : "error");
     }
   }
 
   if (status === "sent") {
     return (
       <div className="bg-cream-2 border-l-2 border-terracotta p-6" role="status" tabIndex={-1}>
-        <strong className="display block text-2xl mb-1.5">Thanks for submitting!</strong>
-        Ms Manae will be in touch shortly. In a hurry? Call or text{" "}
+        <strong className="display block text-2xl mb-1.5">Thanks, your details are on their way.</strong>
+        Ms Manae will call or text you, usually the same day, to talk through your options and your price. After that you’ll be able to book
+        your appointment online. In a hurry? Call or text{" "}
         <a href={`tel:${BIZ.cellTel}`} className="text-terracotta">
           {BIZ.cell}
         </a>

@@ -29,18 +29,15 @@ export const BIZ = {
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.0215849167944!2d-111.9275991!3d33.4747888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0afc453188e5%3A0x2613b8dd36fabc6e!2sLove%20Your%20Loxx%20Hair%20Extension%20Salon!5e0!3m2!1sen!2sus!4v1790874607473!5m2!1sen!2sus",
   /**
-   * Contact form endpoint.
-   * Leave as-is on Netlify: the form posts to /__forms.html and Netlify Forms collects it.
-   * Elsewhere, replace YOUR_FORM_ID with a Formspree form id.
-   */
-  formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
-  /**
    * GoHighLevel online booking. The group widget lists every service calendar
    * in the "Love Your Loxx Services" menu (sub-account ygfr7kWTS92ddkWf3UC8).
    */
   bookingUrl: "https://api.leadconnectorhq.com/widget/groups/loveyourloxx-scottsdale",
   bookingEmbedScript: "https://link.msgsndr.com/js/form_embed.js",
 } as const;
+
+/** Primary call to action everywhere: the quote form on the contact page. */
+export const QUOTE_HREF = "/contact#quote";
 
 export const NAV = [
   { href: "/", label: "Home" },
@@ -49,6 +46,5 @@ export const NAV = [
   { href: "/gallery", label: "Before & After" },
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
-  { href: "/book", label: "Book Online" },
   { href: "/contact", label: "Contact" },
 ] as const;
