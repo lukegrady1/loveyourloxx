@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BIZ, NAV, QUOTE_HREF } from "@/data/site";
+import { BIZ, NAV, CONSULT_HREF } from "@/data/site";
 import { Brand } from "./Brand";
 import { Socials } from "./Socials";
 import { ArrowIcon } from "./Icons";
@@ -55,8 +55,8 @@ export function Footer() {
             </a>
           </p>
           <div className="flex flex-col gap-2 items-start">
-            <Link href={QUOTE_HREF} className="link !text-cream-2 hover:!text-gold">
-              Request a free quote <ArrowIcon />
+            <Link href={CONSULT_HREF} className="link !text-cream-2 hover:!text-gold">
+              Request a consultation <ArrowIcon />
             </Link>
             <Link href="/book" className="link !text-cream-2 hover:!text-gold">
               Existing clients: book online <ArrowIcon />

@@ -3,12 +3,12 @@ import Link from "next/link";
 import { BookingWidget } from "@/components/BookingWidget";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
-import { BIZ, QUOTE_HREF } from "@/data/site";
+import { BIZ, CONSULT_HREF } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Book Your Appointment Online",
   description:
-    "Already have your quote from Ms Manae? Book your hair extension install, maintenance or removal online. Scottsdale, open 7 days, 9am to 6pm, by appointment. New clients start with a free quote.",
+    "Already spoken with Ms Manae? Book your hair extension install, maintenance or removal online. Scottsdale, open 7 days, 9am to 6pm, by appointment. New clients start with a free consultation.",
   alternates: { canonical: "/book" },
 };
 
@@ -85,10 +85,10 @@ export default function BookPage() {
             <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 bg-cream-2 border-l-2 border-terracotta px-6 py-5 mb-6">
               <p className="text-ink-3 m-0 max-w-[52ch]">
                 <strong className="text-ink">New here?</strong> Pricing depends on your hair and how much you need, so Ms Manae talks to every new
-                client before booking. Start with a free quote and she’ll call you.
+                client before booking. Call or text her, or request a consultation and she’ll call you.
               </p>
-              <Link href={QUOTE_HREF} className="btn self-start">
-                Request a free quote <ArrowIcon />
+              <Link href={CONSULT_HREF} className="btn self-start">
+                Request a consultation <ArrowIcon />
               </Link>
             </div>
             <div className="booking-frame bg-cream border border-cream-3">

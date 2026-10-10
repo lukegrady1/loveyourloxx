@@ -18,6 +18,8 @@ export const BIZ = {
   street: "2334 N Scottsdale Rd #117",
   city: "Scottsdale, AZ 85257",
   hours: "Monday – Sunday, 9am – 6pm",
+  /** Entry price for a set of extensions; the exact price depends on the method and amount of hair. */
+  startingPrice: "$500",
   hoursNote: "By appointment",
   social: {
     facebook: "https://www.facebook.com/LoveYourLoxxAZ",
@@ -36,8 +38,27 @@ export const BIZ = {
   bookingEmbedScript: "https://link.msgsndr.com/js/form_embed.js",
 } as const;
 
-/** Primary call to action everywhere: the quote form on the contact page. */
-export const QUOTE_HREF = "/contact#quote";
+/** Primary call to action everywhere: the consultation request form on the contact page. */
+export const CONSULT_HREF = "/contact#consult";
+
+/**
+ * How a new client goes from first contact to an appointment. Shown on the
+ * home, pricing and contact pages so the order is never a surprise.
+ */
+export const PROCESS = [
+  {
+    title: "Call, text or request a consultation",
+    body: "Reach Ms Manae directly, or send a few details about your hair through the form. Either way it takes two minutes and costs nothing.",
+  },
+  {
+    title: "Ms Manae calls you",
+    body: "She’ll talk through what you want, recommend the right method for your hair and give you a straight price, usually the same day.",
+  },
+  {
+    title: "Book your appointment",
+    body: "Once you have a plan and a price, pick a time that suits you online or by text. Full sets start at $500.",
+  },
+] as const;
 
 export const NAV = [
   { href: "/", label: "Home" },

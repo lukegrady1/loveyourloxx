@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Cta } from "@/components/Cta";
+import { Process } from "@/components/Process";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
-import { BIZ, QUOTE_HREF } from "@/data/site";
+import { BIZ, CONSULT_HREF } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Hair Extension Pricing | Free Consultations",
+  title: "Hair Extension Pricing | From $500, Free Consultations",
   description:
-    "How hair extension pricing works at Love Your Loxx in Scottsdale. Free consultations, quotes over the phone, premium reusable hair, free standard removal. Call 480-234-7068.",
+    "Hair extensions in Scottsdale start at $500 and depend on the method and amount of hair. Free consultations, quotes over the phone, premium reusable hair, free standard removal. Call 480-234-7068.",
   alternates: { canonical: "/pricing" },
 };
-
-const STEPS = [
-  ["Tell me about your hair", "Your current length, color, texture and density, and what you’re hoping for: length, volume, color, or all three. The quote form takes two minutes."],
-  ["I call you with a quote", "With your answers I can give you an accurate quote or a high-and-low figure over the phone, so there are no surprises when you come in. Then you book your appointment online."],
-  ["Free in-person consultation", "I’ll look at your hair, color-match the extension hair, confirm the method and the amount of hair you need, and lock in your exact price."],
-];
 
 const INCLUDED = [
   <><strong>Premium, reusable hair</strong> supplied and color-matched to you</>,
@@ -34,11 +29,12 @@ const VARIABLES = [
 ];
 
 const POLICIES = [
-  ["Consultations are free", "Always. In person at the salon or over the phone. You will never be charged to find out what your options are."],
+  ["Consultations are free", "Always. Over the phone or in person at the salon. You will never be charged to find out what your options are."],
+  ["Starting price", `Full sets start at ${BIZ.startingPrice}. The final price depends on the method, the amount of hair you need and the length and color you choose, and I’ll confirm it with you before you book.`],
   ["Standard removals are free", "A normal removal takes 20 to 45 minutes depending on the method and is included. I don’t use acetone-based removers, so it’s gentle on your hair."],
   ["Overdue removals", "If a set is worn past the recommended inch of regrowth, the new growth can mat and the removal can take up to two hours. Those removals are charged at $50 per hour. Coming in on schedule avoids this entirely."],
   ["Reusing your hair", "Quality hair that has been properly cared for can be reused for future sets. I’ll teach you how to care for it at your first appointment."],
-  ["Booking", `The salon is open Monday through Sunday, 9am to 6pm, by appointment. New clients start with a quote, then book online. Existing clients can book online any time, or call or text ${BIZ.cell}.`],
+  ["Booking", `The salon is open Monday through Sunday, 9am to 6pm, by appointment. New clients talk to me first, then book online. Existing clients can book online any time, or call or text ${BIZ.cell}.`],
   ["Payment", "Payment is due at the time of service. Ask about payment options when you book."],
 ];
 
@@ -48,7 +44,7 @@ export default function PricingPage() {
       <PageHero
         label="Pricing"
         title={<>Competitive pricing. <em>Premium hair.</em></>}
-        lead="Every head of hair is different, so every quote is too. Send a few details about your hair and I’ll call you with an accurate quote or a high-and-low range, no visit needed."
+        lead={`Extensions start at ${BIZ.startingPrice}. Every head of hair is different, so your exact price depends on the method, how much hair you need and what you want done. Call or text, or request a consultation, and I’ll call you with an accurate quote before you book.`}
         image="/img/hero-dark.jpg"
         center
       >
@@ -59,31 +55,13 @@ export default function PricingPage() {
               {BIZ.cellDisplay}
             </a>
           </div>
-          <Link href={QUOTE_HREF} className="btn btn-light">
-            Request a free quote <ArrowIcon />
+          <Link href={CONSULT_HREF} className="btn btn-light">
+            Request a consultation <ArrowIcon />
           </Link>
         </div>
       </PageHero>
 
-      <section className="py-[clamp(4rem,9vw,8rem)]">
-        <div className="wrap">
-          <div className="reveal mb-[clamp(2.5rem,5vw,4rem)]">
-            <span className="label">How it works</span>
-            <h2 className="display text-h-lg mt-3">
-              Three steps to <em>your quote.</em>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {STEPS.map(([t, b], i) => (
-              <article key={t} className="reveal flex flex-col gap-4 bg-cream border border-cream-3 px-7 py-8" data-delay={String(i)}>
-                <span className="font-display font-light text-[2.6rem] leading-none text-terracotta">{i + 1}</span>
-                <h3 className="font-display text-[1.5rem]">{t}</h3>
-                <p className="text-ink-3 text-[0.97rem] m-0">{b}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Process />
 
       <section className="bg-cream-2 py-[clamp(4rem,9vw,8rem)]">
         <div className="wrap grid md:grid-cols-2 gap-[clamp(2rem,6vw,6rem)] items-start">
@@ -138,7 +116,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <Cta title={<>Get your <em>quote</em> today.</>} body="Send a few details about your hair and I’ll call you with a straight answer on method and price. Prefer to talk now? Call or text." />
+      <Cta title={<>Get your <em>quote</em> today.</>} body="Call or text, or send a few details about your hair, and I’ll call you with a straight answer on method and price. Then you book." />
     </>
   );
 }

@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Cta } from "@/components/Cta";
 import { Faq } from "@/components/Faq";
 import { Gallery } from "@/components/Gallery";
+import { Process } from "@/components/Process";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 import { Socials } from "@/components/Socials";
 import { GENERAL_FAQ } from "@/data/faqs";
 import { METHODS } from "@/data/methods";
 import { REVIEWS } from "@/data/reviews";
-import { BIZ, QUOTE_HREF } from "@/data/site";
+import { BIZ, CONSULT_HREF } from "@/data/site";
 import { getGalleryImages } from "@/lib/gallery";
 
 const HOME_PICKS = ["ba-04", "ba-07", "ba-24", "ba-29", "ba-32", "ba-13", "ba-52", "ba-16", "ba-33", "ba-39"];
@@ -46,13 +47,13 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-8">
               <div className="flex flex-col gap-1">
-                <small className="font-label text-[0.7rem] tracking-[0.22em] uppercase text-gold">Call or text for a free consultation</small>
+                <small className="font-label text-[0.7rem] tracking-[0.22em] uppercase text-gold">Free consultations · Extensions from {BIZ.startingPrice}</small>
                 <a href={`tel:${BIZ.cellTel}`} className="font-label font-medium text-[clamp(1.5rem,2.8vw,2rem)] tracking-[0.01em] leading-none text-cream hover:text-gold">
                   {BIZ.cellDisplay}
                 </a>
               </div>
-              <Link href={QUOTE_HREF} className="btn btn-light">
-                Request a free quote <ArrowIcon />
+              <Link href={CONSULT_HREF} className="btn btn-light">
+                Request a consultation <ArrowIcon />
               </Link>
             </div>
           </div>
@@ -86,6 +87,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <Process />
 
       {/* Intro */}
       <section className="py-[clamp(4rem,9vw,8rem)]">

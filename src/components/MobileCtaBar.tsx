@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { QUOTE_HREF } from "@/data/site";
+import { CONSULT_HREF } from "@/data/site";
 import { ArrowIcon } from "./Icons";
 
 /**
- * Sticky "Request a quote" button for phones and tablets, where the header's
+ * Sticky "Request a consultation" button for phones and tablets, where the header's
  * button is hidden. Slides up once the visitor scrolls past the top of the
  * page and stays out of the way on the contact page, where the form lives.
  */
@@ -37,10 +37,10 @@ export function MobileCtaBar() {
       }`}
     >
       <Link
-        href={QUOTE_HREF}
+        href={CONSULT_HREF}
         className="btn pointer-events-auto mx-auto !px-8 !py-3.5 shadow-[0_10px_30px_rgba(27,25,23,0.28)]"
       >
-        Request a free quote <ArrowIcon />
+        Request a consultation <ArrowIcon />
       </Link>
     </div>
   );

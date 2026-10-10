@@ -4,20 +4,14 @@ import { ContactForm } from "@/components/ContactForm";
 import { ArrowIcon } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
 import { Socials } from "@/components/Socials";
-import { BIZ } from "@/data/site";
+import { BIZ, PROCESS } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Request a Free Quote | Contact Ms Manae",
+  title: "Request a Free Consultation | Contact Ms Manae",
   description:
-    "Request a free hair extension quote in Scottsdale. Tell Ms Manae about your hair and she will call you with options and pricing. Or call or text 480-234-7068. 2334 N Scottsdale Rd #117, open 7 days by appointment.",
+    "Request a free hair extension consultation in Scottsdale. Call or text Ms Manae at 480-234-7068, or send a few details and she will call you with options and pricing before you book. 2334 N Scottsdale Rd #117, open 7 days by appointment.",
   alternates: { canonical: "/contact" },
 };
-
-const STEPS = [
-  ["Send your details", "Two minutes on the form below. Your hair, what you want, and the best way to reach you."],
-  ["Ms Manae calls you", "She’ll talk through the right method for your hair and give you a straight quote, usually the same day."],
-  ["Book your appointment", "Once you have a plan and a price, pick a time that suits you online or by text."],
-];
 
 export default function ContactPage() {
   return (
@@ -25,7 +19,7 @@ export default function ContactPage() {
       <PageHero
         label="Contact"
         title={<>Let’s make you a more <em>fabulous you.</em></>}
-        lead="Every head of hair is different, so every quote is too. Send a few details below and I’ll call you to talk through your options and your price. The more you tell me about your hair, the more accurate your quote will be."
+        lead="Call or text me, or send a few details below, and I’ll call you to talk through your options and your price before you book anything. Consultations are always free, and the more you tell me about your hair, the more accurate your quote will be."
         image="/img/hero-blonde.jpg"
         imagePosition="70% 30%"
       />
@@ -35,18 +29,18 @@ export default function ContactPage() {
             <div className="grid gap-4 bg-cream-2 border-l-2 border-terracotta p-6">
               <span className="label">How it works</span>
               <ol className="grid gap-3 m-0 p-0 list-none">
-                {STEPS.map(([t, b], i) => (
-                  <li key={t} className="grid grid-cols-[2rem_1fr] gap-3 items-baseline">
+                {PROCESS.map((step, i) => (
+                  <li key={step.title} className="grid grid-cols-[2rem_1fr] gap-3 items-baseline">
                     <span className="font-display font-light text-[1.9rem] leading-none text-terracotta">{i + 1}</span>
                     <span className="text-ink-3">
-                      <strong className="block font-display font-normal text-ink text-[1.15rem]">{t}</strong>
-                      {b}
+                      <strong className="block font-display font-normal text-ink text-[1.15rem]">{step.title}</strong>
+                      {step.body}
                     </span>
                   </li>
                 ))}
               </ol>
-              <a href="#quote" className="btn self-start lg:hidden">
-                Start your quote <ArrowIcon />
+              <a href="#consult" className="btn self-start lg:hidden">
+                Request a consultation <ArrowIcon />
               </a>
             </div>
             <div className="grid gap-1 bg-cream-2 border-l-2 border-terracotta p-6">
@@ -95,8 +89,8 @@ export default function ContactPage() {
             </p>
             <Socials />
           </aside>
-          <div id="quote" className="reveal scroll-mt-[calc(var(--header-h)+1.5rem)]" data-delay="1">
-            <span className="label">Request a free quote</span>
+          <div id="consult" className="reveal scroll-mt-[calc(var(--header-h)+1.5rem)]" data-delay="1">
+            <span className="label">Request a free consultation</span>
             <h2 className="display text-h-md mt-2 mb-6">Tell Ms Manae about your hair</h2>
             <ContactForm />
           </div>
