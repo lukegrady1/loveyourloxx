@@ -30,7 +30,7 @@ npm run lint
 The form posts to `/api/contact` (`src/app/api/contact/route.ts`), which creates or updates the
 contact in GoHighLevel via `src/lib/ghl.ts`:
 
-- name / phone / email → the contact record (GHL dedupes on phone and email)
+- name / phone / email (all required) → the contact record (GHL dedupes on phone and email)
 - service, method, goals, natural hair, texture, timeline, contact preference → contact custom
   fields (`contact.service_interest`, `contact.preferred_extension_method`, `contact.extension_goals`,
   `contact.natural_hair`, `contact.hair_texture`, `contact.install_timeline`, `contact.contact_preference`)

@@ -77,8 +77,8 @@ export function ContactForm() {
       </div>
 
       <div className="field grid gap-2">
-        <label htmlFor="f-email">Email</label>
-        <input id="f-email" name="email" type="email" autoComplete="email" />
+        <label htmlFor="f-email">Email *</label>
+        <input id="f-email" name="email" type="email" required autoComplete="email" />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-6">

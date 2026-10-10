@@ -89,7 +89,7 @@ function buildNote(f: Fields, phone: string): string {
     "",
     `Name: ${f.name}`,
     `Phone: ${phone}`,
-    `Email: ${f.email || "—"}`,
+    `Email: ${f.email}`,
     `Best way to reach: ${f.contactPref || "—"}`,
     "",
     `Interested in: ${f.service}`,
@@ -115,7 +115,7 @@ export async function POST(req: Request) {
   if (!f.name) errors.push("name");
   if (!f.phone || f.phone.replace(/\D/g, "").length < 7) errors.push("phone");
   if (!f.service) errors.push("service");
-  if (f.email && !EMAIL_RE.test(f.email)) errors.push("email");
+  if (!EMAIL_RE.test(f.email)) errors.push("email");
   if (errors.length) {
     return NextResponse.json({ ok: false, error: "Missing or invalid fields", fields: errors }, { status: 422 });
   }
@@ -135,7 +135,7 @@ export async function POST(req: Request) {
     const result = await upsertContact({
       firstName: f.name,
       phone,
-      ...(f.email ? { email: f.email } : {}),
+      email: f.email,
       source: SOURCE,
       tags: [INQUIRY_TAG],
       customFields,

@@ -63,7 +63,7 @@ async function ghl<T>(method: "GET" | "POST" | "PUT" | "DELETE", path: string, b
 export type UpsertInput = {
   firstName: string;
   phone: string;
-  email?: string;
+  email: string;
   source: string;
   tags: string[];
   customFields: { key: string; field_value: string }[];
