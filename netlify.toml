@@ -4,3 +4,8 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Turbopack's persistent cache snapshots build-time env vars. The cache is never
+# deployed, so exclude it from Netlify's secrets scan instead of failing the build.
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = ".netlify/.next/cache/**,.next/cache/**"
