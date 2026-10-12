@@ -36,7 +36,7 @@ export default function BookPage() {
         label="Book online"
         title={<>Pick a service. <em>Pick a time.</em></>}
         lead="For clients who have already spoken with Ms Manae. Choose your service, see live availability, and lock in your appointment in under a minute."
-        image="/img/hero-dark.jpg"
+        image="/img/hero-dark.webp"
       >
         <div className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-2">
           <div className="flex flex-col gap-1">

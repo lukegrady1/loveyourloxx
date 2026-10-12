@@ -21,7 +21,7 @@ export default function GalleryPage() {
         label="Before & after"
         title={<>{images.length} transformations, <em>zero filters.</em></>}
         lead="Every photo here is a real client, taken in the salon on the day of her appointment. Length, volume, color, blends on fine hair and thick hair. Tap any photo to enlarge."
-        image="/img/editorial-red.jpg"
+        image="/img/editorial-red.webp"
         center
       />
       <section className="py-[clamp(4rem,9vw,8rem)]">

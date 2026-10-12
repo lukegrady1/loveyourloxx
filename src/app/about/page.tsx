@@ -29,15 +29,15 @@ export default function AboutPage() {
         label="About"
         title={<>Ms <em>Manae</em></>}
         lead="Hair extension specialist. Scottsdale, Arizona. Fifteen-plus years behind the chair, and just as many wearing extensions herself."
-        image="/img/editorial-turtleneck.jpg"
+        image="/img/editorial-turtleneck.webp"
       />
 
       <section className="py-[clamp(4rem,9vw,8rem)]">
         <div className="wrap grid md:grid-cols-2 gap-[clamp(2rem,6vw,6rem)] items-center">
           <div className="reveal frame-offset relative">
-            <Image src="/img/manae-at-work.jpg" alt="Ms Manae applying hair extensions in her Scottsdale salon" width={1242} height={1369} sizes="(max-width: 768px) 100vw, 50vw" className="w-full aspect-[4/5] object-cover" priority />
+            <Image src="/img/manae-at-work.webp" alt="Ms Manae applying hair extensions in her Scottsdale salon" width={1242} height={1369} sizes="(max-width: 768px) 100vw, 50vw" className="w-full aspect-[4/5] object-cover" priority />
             <div className="absolute right-0 md:-right-4 bottom-8 w-[120px] md:w-[150px] bg-cream p-2 shadow-[0_20px_50px_rgba(27,25,23,0.2)] rotate-3">
-              <Image src="/img/award-best-of-2019.jpg" alt="Best of Scottsdale 2019 award, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
+              <Image src="/img/award-best-of-2019.webp" alt="Best of Scottsdale 2019 award, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
             </div>
           </div>
           <div className="reveal prose-lyl" data-delay="1">

@@ -148,7 +148,7 @@ export default function ExtensionsPage() {
         label="Extension education"
         title={<>Four methods, <em>explained honestly.</em></>}
         lead="Every method has a place. The right one for you depends on your hair’s density, your lifestyle and how you like to style. Here is how each one works, how long it takes, how long it lasts, and what I really think about it."
-        image="/img/hero-brunette.jpg"
+        image="/img/hero-brunette.webp"
         imagePosition="50% 25%"
         center
       />

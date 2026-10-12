@@ -27,7 +27,7 @@ export default function FaqPage() {
             .
           </>
         }
-        image="/img/editorial-hair-closeup.jpg"
+        image="/img/editorial-hair-closeup.webp"
         center
       />
       <section className="py-[clamp(4rem,9vw,8rem)]">

@@ -45,7 +45,7 @@ export default function PricingPage() {
         label="Pricing"
         title={<>Competitive pricing. <em>Premium hair.</em></>}
         lead={`Extensions start at ${BIZ.startingPrice}. Every head of hair is different, so your exact price depends on the method, how much hair you need and what you want done. Call or text, or request a consultation, and I’ll call you with an accurate quote before you book.`}
-        image="/img/hero-dark.jpg"
+        image="/img/hero-dark.webp"
         center
       >
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 mt-2">
