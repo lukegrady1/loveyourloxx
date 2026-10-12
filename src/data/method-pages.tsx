@@ -173,9 +173,9 @@ export const METHOD_PAGES: Record<string, MethodPage> = {
           tedious; but, I like to save my clients as much money as possible when choosing to wear hair extensions.
         </p>
         <p>
-          My removal process is free unless you’ve worn your extensions too long. If the strands have grown out more than an inch, the new growth
+          My removal process is $75 an hour unless you’ve worn your extensions too long. If the strands have grown out more than an inch, the new growth
           hair has the potential to dread up; because, the new growth hair is much more difficult to brush. If a client has worn the extensions past
-          the recommended inch of regrowth and the hair has dreaded up, I charge $50 an hour to do the removal and the removal can be much more
+          the recommended inch of regrowth and the hair has dreaded up, I charge $100 an hour to do the removal and the removal can be much more
           difficult. A normal removal can take 30-45 minutes where a dreaded removal can take up to two hours.
         </p>
       </>

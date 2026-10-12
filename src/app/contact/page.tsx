@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageHero
         label="Contact"
         title={<>Let’s make you a more <em>fabulous you.</em></>}
-        lead="Call or text me, or send a few details below, and I’ll call you to talk through your options and your price before you book anything. Consultations are always free, and the more you tell me about your hair, the more accurate your quote will be."
+        lead="Call or text me, or send a few details below, and I’ll call you to talk through your options and your price before you book anything. The more you tell me about your hair, the more accurate your quote will be."
         image="/img/hero-blonde.webp"
         imagePosition="70% 30%"
       />

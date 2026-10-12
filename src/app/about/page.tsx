@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         label="About"
         title={<>Ms <em>Manae</em></>}
-        lead="Hair extension specialist. Scottsdale, Arizona. Fifteen-plus years behind the chair, and just as many wearing extensions herself."
+        lead="Hair extension specialist. Scottsdale, Arizona. Twenty-eight-plus years behind the chair, and just as many wearing extensions herself."
         image="/img/editorial-turtleneck.webp"
       />
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
       <Cta
         title={<>Let’s talk about <em>your</em> hair.</>}
-        body="Consultations are always free. I’ll look at your hair, listen to what you want, and recommend the method that will get you there safely."
+        body="I’ll look at your hair, listen to what you want, and recommend the method that will get you there safely."
       />
     </>
   );

@@ -19,14 +19,14 @@ const SERVICES = [
   ["Tape-in extensions, install", "1 hr"],
   ["Tape-in maintenance, re-tape", "1 hr"],
   ["Hand tied extensions, full set", "2 hrs"],
-  ["Standard removal, free", "45 min"],
-  ["Overdue removal, $50 per hour", "Up to 2 hrs"],
+  ["Removal, $75 per hour", "45 min"],
+  ["Overdue removal, $100 per hour", "Up to 2 hrs"],
 ];
 
 const NOTES = [
   "Book the service you and Ms Manae agreed on during your call. If you’re not sure which one, text her and she’ll point you to the right calendar.",
   "Need a consultation in person first? Book the consultation and bring inspiration photos if you have them.",
-  "Removals are free when you come in on schedule, around one inch of regrowth.",
+  "Standard removals are $75 per hour when you come in on schedule, around one inch of regrowth. Overdue removals are $100 per hour.",
 ];
 
 export default function BookPage() {

@@ -46,11 +46,11 @@ export default function HomePage() {
         </div>
         <div className="wrap relative z-10">
           <div className="hero-stagger max-w-[720px] pt-[clamp(3rem,8vw,6rem)] pb-[clamp(3rem,7vw,5.5rem)]">
-            <span className="label !text-gold">Scottsdale’s finest hair extensions · Est. 28+ years</span>
+            <span className="label !text-gold">Scottsdale, Arizona · Est. 28+ years</span>
             <h1 className="display text-h-xl !text-cream my-5">
-              Love Your <em className="text-gold">Loxx</em>
+              Hair Extensions <em className="text-gold">in Scottsdale</em>{" "}
               <span className="block mt-3 font-display font-light tracking-normal text-[clamp(1.3rem,2.4vw,2rem)] leading-tight text-cream-2">
-                Hair Extensions by Ms Manae
+                by Ms Manae at Love Your Loxx
               </span>
             </h1>
             <p className="text-lead text-cream-2 max-w-[520px]">

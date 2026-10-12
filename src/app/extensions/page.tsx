@@ -58,7 +58,7 @@ export default function ExtensionsPage() {
               </article>
             ))}
           </div>
-          <p className="text-stone text-[0.9rem] mt-5">Times are typical for a full head and vary with how much hair you need and how thick your natural hair is. Standard removals are free.</p>
+          <p className="text-stone text-[0.9rem] mt-5">Times are typical for a full head and vary with how much hair you need and how thick your natural hair is. Standard removals are $75 per hour.</p>
         </div>
       </section>
 

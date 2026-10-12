@@ -9,7 +9,7 @@ import { BIZ, CONSULT_HREF } from "@/data/site";
 export const metadata: Metadata = {
   title: "Hair Extension Pricing | From $500",
   description:
-    "Hair extensions in Scottsdale start at $500 and depend on the method and amount of hair. Consultations and quotes over the phone, premium reusable hair, free standard removal. Call 480-234-7068.",
+    "Hair extensions in Scottsdale start at $500 and depend on the method and amount of hair. Consultations and quotes over the phone, premium reusable hair, gentle acetone-free removals. Call 480-234-7068.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -17,7 +17,6 @@ const INCLUDED = [
   <><strong>Premium, reusable hair</strong> supplied and color-matched to you</>,
   <><strong>Full application</strong> with cutting, layering and blending</>,
   <><strong>Care education</strong> so your set lasts and your hair stays healthy</>,
-  <><strong>Free standard removal</strong> when you come in on schedule</>,
   <><strong>Re-tipping</strong> so quality hair can be reapplied as a new set</>,
 ];
 
@@ -31,8 +30,8 @@ const VARIABLES = [
 const POLICIES = [
   ["Consultations", "Over the phone or in person at the salon. Ms Manae talks through your hair, your options and your price with every new client before anything is booked."],
   ["Starting price", `Full sets start at ${BIZ.startingPrice}. The final price depends on the method, the amount of hair you need and the length and color you choose, and I’ll confirm it with you before you book.`],
-  ["Standard removals are free", "A normal removal takes 20 to 45 minutes depending on the method and is included. I don’t use acetone-based removers, so it’s gentle on your hair."],
-  ["Overdue removals", "If a set is worn past the recommended inch of regrowth, the new growth can mat and the removal can take up to two hours. Those removals are charged at $50 per hour. Coming in on schedule avoids this entirely."],
+  ["Removals", "A standard removal takes 20 to 45 minutes depending on the method and is charged at $75 per hour. I don’t use acetone-based removers, so it’s gentle on your hair."],
+  ["Overdue removals", "If a set is worn past the recommended inch of regrowth, the new growth can mat and the removal can take up to two hours. Those removals are charged at $100 per hour. Coming in on schedule avoids this entirely."],
   ["Reusing your hair", "Quality hair that has been properly cared for can be reused for future sets. I’ll teach you how to care for it at your first appointment."],
   ["Booking", `The salon is open Monday through Sunday, 9am to 6pm, by appointment. New clients talk to me first, then book online. Existing clients can book online any time, or call or text ${BIZ.cell}.`],
   ["Payment", "Payment is due at the time of service. Ask about payment options when you book."],

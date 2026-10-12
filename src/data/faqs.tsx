@@ -187,7 +187,7 @@ export const METHOD_FAQ: Record<string, FaqItem[]> = {
       a: (
         <p>
           If the bonds grow out more than an inch, the new growth can mat or “dread up” because it’s hard to brush. Those removals can take up to
-          two hours and are charged at $50 per hour. Coming in on schedule keeps removal free and easy.
+          two hours and are charged at $100 per hour, compared with $75 per hour for a standard removal. Coming in on schedule keeps removal quick and easy.
         </p>
       ),
     },
