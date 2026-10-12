@@ -85,7 +85,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function buildNote(f: Fields, phone: string): string {
   const lines = [
-    "New consultation request from loveyourloxx.com",
+    "New consultation request from loveyourloxxx.com",
     "",
     `Name: ${f.name}`,
     `Phone: ${phone}`,

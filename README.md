@@ -1,4 +1,4 @@
-# Love Your Loxx — loveyourloxx.com
+# Love Your Loxx — loveyourloxxx.com (the old loveyourloxx.com is a Wix site the client cannot access)
 
 Rebuild of the Love Your Loxx (Hair Extensions by Ms Manae, Scottsdale AZ) website.
 Next.js 16 (App Router) · TypeScript · Tailwind CSS v4.
@@ -23,7 +23,7 @@ npm run lint
 | `src/data/faqs.tsx` | General and per-method FAQs |
 | `src/data/reviews.ts` | Testimonials |
 | `src/app/globals.css` | Tailwind theme tokens (colors, font: Onest throughout; type scale) and small component layer |
-| `public/img/` | Client photography. `gallery/ba-XX.jpg` + `ba-XX-thumb.jpg` pairs are picked up automatically by `src/lib/gallery.ts`. |
+| `public/img/` | Client photography. `gallery/ba-XX.webp` + `ba-XX-thumb.webp` pairs are picked up automatically by `src/lib/gallery.ts`. |
 
 ## Contact form
 
@@ -52,7 +52,7 @@ form component, the route and that file together.
 
 ## Adding before & after photos
 
-Drop a square `ba-NN.jpg` (≈1200px) and a `ba-NN-thumb.jpg` (≈640px) into `public/img/gallery/`. Rebuild. The gallery, count and homepage picks (`HOME_PICKS` in `src/app/page.tsx`) update automatically.
+Drop a square `ba-NN.webp` (≈1200px) and a `ba-NN-thumb.webp` (≈640px) into `public/img/gallery/`. Rebuild. The gallery, count and homepage picks (`HOME_PICKS` in `src/app/page.tsx`) update automatically.
 
 ## Deploy
 

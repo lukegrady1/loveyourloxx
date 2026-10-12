@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { BIZ } from "@/data/site";
 import { METHODS } from "@/data/methods";
 import { ArrowIcon } from "./Icons";
@@ -11,6 +11,18 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const thanksRef = useRef<HTMLDivElement>(null);
+
+  // The form is at the bottom of the page, so after sending scroll up to the
+  // block that wraps the form (its heading plus the thank-you panel, with
+  // scroll-margin for the sticky header) and move focus to the panel.
+  useEffect(() => {
+    if (status !== "sent") return;
+    const el = thanksRef.current;
+    if (!el) return;
+    (el.parentElement ?? el).scrollIntoView({ block: "start", behavior: "smooth" });
+    el.focus({ preventScroll: true });
+  }, [status]);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,7 +55,12 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="bg-cream-2 border-l-2 border-terracotta p-6" role="status" tabIndex={-1}>
+      <div
+        ref={thanksRef}
+        className="bg-cream-2 border-l-2 border-terracotta p-6 outline-none"
+        role="status"
+        tabIndex={-1}
+      >
         <strong className="display block text-2xl mb-1.5">Thanks, your details are on their way.</strong>
         Ms Manae will call or text you, usually the same day, to talk through your options and your price. After that you’ll be able to book
         your appointment online. In a hurry? Call or text{" "}
@@ -58,7 +75,7 @@ export function ContactForm() {
   return (
     <form className="grid gap-6" method="POST" name="contact" onSubmit={onSubmit}>
       <input type="hidden" name="form-name" value="contact" />
-      <input type="hidden" name="_subject" value="New consultation request from loveyourloxx.com" />
+      <input type="hidden" name="_subject" value="New consultation request from loveyourloxxx.com" />
       <p className="absolute -left-[9999px]" aria-hidden="true">
         <label>
           Company <input type="text" name="company" tabIndex={-1} autoComplete="off" />

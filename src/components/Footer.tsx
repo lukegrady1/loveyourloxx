@@ -14,7 +14,7 @@ export function Footer() {
           <Socials className="text-cream-2" />
         </div>
         <div>
-          <h4 className="font-label font-normal text-[0.68rem] tracking-[0.24em] uppercase text-gold mb-4">Explore</h4>
+          <h3 className="font-label font-normal text-[0.68rem] tracking-[0.24em] uppercase text-gold mb-4">Explore</h3>
           <ul className="grid gap-2">
             {NAV.map(({ href, label }) => (
               <li key={href}>
@@ -26,7 +26,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="font-label font-normal text-[0.68rem] tracking-[0.24em] uppercase text-gold mb-4">Visit</h4>
+          <h3 className="font-label font-normal text-[0.68rem] tracking-[0.24em] uppercase text-gold mb-4">Visit</h3>
           <p className="text-[0.95rem] mb-2">
             <a href={BIZ.mapsLink} target="_blank" rel="noopener noreferrer" className="text-cream-2 hover:text-gold">
               {BIZ.street}
@@ -41,7 +41,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="font-label font-normal text-[0.68rem] tracking-[0.24em] uppercase text-gold mb-4">Call or text</h4>
+          <h3 className="font-label font-normal text-[0.68rem] tracking-[0.24em] uppercase text-gold mb-4">Call or text</h3>
           <p className="text-[0.95rem] mb-2">
             Cell{" "}
             <a href={`tel:${BIZ.cellTel}`} className="text-cream-2 hover:text-gold">

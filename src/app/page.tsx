@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Cta } from "@/components/Cta";
@@ -12,11 +13,22 @@ import { REVIEWS } from "@/data/reviews";
 import { BIZ, CONSULT_HREF } from "@/data/site";
 import { getGalleryImages } from "@/lib/gallery";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const TRUST = [
+  ["15+", "Years of extensions"],
+  ["4", "Methods, one specialist"],
+  ["Best of 2019", "Scottsdale hair extension technician"],
+  ["★★★★★", "Rated by clients on Google"],
+];
+
 const HOME_PICKS = ["ba-04", "ba-07", "ba-24", "ba-29", "ba-32", "ba-13", "ba-52", "ba-16", "ba-33", "ba-39"];
 
 export default function HomePage() {
   const all = getGalleryImages();
-  const picks = HOME_PICKS.map((id) => all.find((g) => g.full.includes(`/${id}.jpg`))).filter((g): g is NonNullable<typeof g> => Boolean(g));
+  const picks = HOME_PICKS.map((id) => all.find((g) => g.full.includes(`/${id}.webp`))).filter((g): g is NonNullable<typeof g> => Boolean(g));
 
   return (
     <>
@@ -24,7 +36,7 @@ export default function HomePage() {
       <section className="hero-shade relative grid items-end overflow-hidden bg-ink text-cream min-h-[max(600px,calc(100svh-var(--header-h)-36px))]">
         <div className="absolute inset-0">
           <Image
-            src="/img/hero-blonde.jpg"
+            src="/img/hero-blonde.webp"
             alt="Long, voluminous blonde hair extensions"
             fill
             priority
@@ -66,25 +78,28 @@ export default function HomePage() {
         </span>
       </section>
 
-      {/* Trust bar */}
+      {/* Trust bar: one continuously sliding row on mobile, static 4-up grid from md */}
       <section className="bg-ink-2 text-cream-2 border-t border-white/5">
-        <div className="wrap grid grid-cols-2 md:grid-cols-4 !w-full md:!w-[min(1240px,100%-var(--gutter)*2)]">
-          {[
-            ["15+", "Years of extensions"],
-            ["4", "Methods, one specialist"],
-            ["Best of 2019", "Scottsdale hair extension technician"],
-            ["★★★★★", "Rated by clients on Google"],
-          ].map(([big, small], i) => (
-            <div
-              key={small}
-              className={`flex flex-col gap-1 px-[var(--gutter)] md:px-6 py-5 border-white/[0.08] ${
-                i % 2 === 1 ? "border-l" : ""
-              } ${i >= 2 ? "border-t md:border-t-0" : ""} ${i > 0 ? "md:border-l" : "md:pl-0"}`}
-            >
-              <strong className="font-display font-medium text-[1.7rem] leading-none text-cream">{big}</strong>
-              <span className="font-label text-[0.68rem] tracking-[0.2em] uppercase text-stone-2">{small}</span>
+        <div className="wrap !w-full md:!w-[min(1240px,100%-var(--gutter)*2)]">
+          <div className="trust-scroller overflow-hidden">
+            <div className="trust-track">
+              {[...TRUST, ...TRUST].map(([big, small], i) => {
+                const clone = i >= TRUST.length;
+                return (
+                  <div
+                    key={`${small}${clone ? "-clone" : ""}`}
+                    aria-hidden={clone || undefined}
+                    className={`flex flex-col gap-1 px-6 py-5 whitespace-nowrap border-l border-white/[0.08] ${
+                      i === 0 ? "md:border-l-0 md:pl-0" : ""
+                    } ${clone ? "md:hidden motion-reduce:hidden" : ""}`}
+                  >
+                    <strong className="font-display font-medium text-[1.7rem] leading-none text-cream">{big}</strong>
+                    <span className="font-label text-[0.68rem] tracking-[0.2em] uppercase text-stone-2">{small}</span>
+                  </div>
+                );
+              })}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -135,7 +150,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-cream-3 border border-cream-3">
             {METHODS.map((m, i) => (
               <article key={m.id} className="reveal group relative flex flex-col gap-4 bg-cream hover:bg-paper transition-colors duration-300 px-6 pt-7 pb-8" data-delay={String(i % 4)}>
-                <span className="font-display font-light text-[1.1rem] text-stone-2">{m.num}</span>
+                <span className="font-display font-light text-[1.1rem] text-stone">{m.num}</span>
                 <div className="relative aspect-[4/3] overflow-hidden bg-cream-2">
                   <Image
                     src={m.img}
@@ -154,7 +169,7 @@ export default function HomePage() {
                 </dl>
                 <p className="text-[0.95rem] text-ink-3 flex-1">{m.short}</p>
                 <Link href={`/extensions#${m.id}`} className="link self-start">
-                  Learn more <ArrowIcon />
+                  Learn more<span className="sr-only"> about {m.name.toLowerCase()} extensions</span> <ArrowIcon />
                 </Link>
               </article>
             ))}
@@ -164,7 +179,7 @@ export default function HomePage() {
 
       {/* Editorial band */}
       <section className="relative isolate grid place-items-center min-h-[70vh] overflow-hidden bg-ink text-cream text-center">
-        <Image src="/img/editorial-hair-closeup.jpg" alt="" fill sizes="100vw" className="object-cover -z-10" />
+        <Image src="/img/editorial-hair-closeup.webp" alt="" fill sizes="100vw" className="object-cover -z-10" />
         <div className="absolute inset-0 bg-ink/55 -z-10" />
         <div className="reveal max-w-[900px] px-[var(--gutter)] py-[clamp(4rem,10vw,8rem)]">
           <blockquote className="font-display font-light tracking-tight text-[clamp(1.7rem,3.6vw,3rem)] leading-[1.25]">
@@ -229,9 +244,9 @@ export default function HomePage() {
       <section className="py-[clamp(4rem,9vw,8rem)]">
         <div className="wrap grid md:grid-cols-2 gap-[clamp(2rem,6vw,6rem)] items-center">
           <div className="reveal frame-offset relative">
-            <Image src="/img/manae-at-work.jpg" alt="Ms Manae applying hair extensions in her Scottsdale salon" width={1242} height={1369} sizes="(max-width: 768px) 100vw, 50vw" className="w-full aspect-[4/5] object-cover" />
+            <Image src="/img/manae-at-work.webp" alt="Ms Manae applying hair extensions in her Scottsdale salon" width={1242} height={1369} sizes="(max-width: 768px) 100vw, 50vw" className="w-full aspect-[4/5] object-cover" />
             <div className="absolute right-0 md:-right-4 bottom-8 w-[120px] md:w-[150px] bg-cream p-2 shadow-[0_20px_50px_rgba(27,25,23,0.2)] rotate-3">
-              <Image src="/img/award-best-of-2019.jpg" alt="Best of Scottsdale 2019 award, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
+              <Image src="/img/award-best-of-2019.webp" alt="Best of Scottsdale 2019 award, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
             </div>
           </div>
           <div className="reveal" data-delay="1">
@@ -333,7 +348,7 @@ export default function HomePage() {
 function InfoBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">{title}</h4>
+      <h3 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">{title}</h3>
       <p className="text-ink-3 m-0">{children}</p>
     </div>
   );

@@ -4,7 +4,7 @@
  * primary site URL (the *.netlify.app address now, the custom domain once attached),
  * then the production domain.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "https://www.loveyourloxx.com").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "https://loveyourloxxx.com").replace(/\/$/, "");
 
 export const BIZ = {
   name: "Love Your Loxx",

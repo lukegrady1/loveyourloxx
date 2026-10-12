@@ -20,7 +20,7 @@ export default function ContactPage() {
         label="Contact"
         title={<>Let’s make you a more <em>fabulous you.</em></>}
         lead="Call or text me, or send a few details below, and I’ll call you to talk through your options and your price before you book anything. Consultations are always free, and the more you tell me about your hair, the more accurate your quote will be."
-        image="/img/hero-blonde.jpg"
+        image="/img/hero-blonde.webp"
         imagePosition="70% 30%"
       />
       <section className="py-[clamp(4rem,9vw,8rem)]">
@@ -54,13 +54,13 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-x-8 gap-y-6">
               <div>
-                <h4 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">Salon line</h4>
+                <h2 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">Salon line</h2>
                 <a href={`tel:${BIZ.salonTel}`} className="font-label text-[1.2rem] tracking-[0.05em] text-ink hover:text-terracotta">
                   {BIZ.salon}
                 </a>
               </div>
               <div>
-                <h4 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">Hours</h4>
+                <h2 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">Hours</h2>
                 <p className="text-ink-3 m-0">
                   {BIZ.hours}
                   <br />
@@ -68,7 +68,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="col-span-2">
-                <h4 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">Address</h4>
+                <h2 className="font-label font-normal text-[0.7rem] tracking-[0.22em] uppercase text-terracotta mb-2">Address</h2>
                 <p className="text-ink-3 m-0">
                   <a href={BIZ.mapsLink} target="_blank" rel="noopener noreferrer" className="hover:text-terracotta">
                     {BIZ.street}
