@@ -20,7 +20,7 @@ export default function FaqPage() {
         title={<>Everything you wanted <em>to ask.</em></>}
         lead={
           <>
-            Straight answers from 15+ years of doing nothing but extensions. For method-specific questions, see the{" "}
+            Straight answers from 28+ years of doing nothing but extensions. For method-specific questions, see the{" "}
             <Link href="/extensions" className="text-gold underline underline-offset-4">
               extensions page
             </Link>

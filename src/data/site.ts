@@ -60,12 +60,23 @@ export const PROCESS = [
   },
 ] as const;
 
-export const NAV = [
+export type NavItem = { href: string; label: string; children?: readonly { href: string; label: string }[] };
+
+export const NAV: readonly NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/extensions", label: "Extensions" },
+  {
+    href: "/extensions",
+    label: "Extensions",
+    children: [
+      { href: "/extensions/micro-bead", label: "Micro Bead" },
+      { href: "/extensions/fusion", label: "Fusion" },
+      { href: "/extensions/tape-in", label: "Tape-Ins" },
+      { href: "/extensions/hand-tied", label: "Hand Tied" },
+    ],
+  },
   { href: "/gallery", label: "Before & After" },
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
-] as const;
+];

@@ -7,9 +7,9 @@ import { Socials } from "@/components/Socials";
 import { BIZ, PROCESS } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Request a Free Consultation | Contact Ms Manae",
+  title: "Request a Consultation | Contact Ms Manae",
   description:
-    "Request a free hair extension consultation in Scottsdale. Call or text Ms Manae at 480-234-7068, or send a few details and she will call you with options and pricing before you book. 2334 N Scottsdale Rd #117, open 7 days by appointment.",
+    "Request a hair extension consultation in Scottsdale. Call or text Ms Manae at 480-234-7068, or send a few details and she will call you with options and pricing before you book. 2334 N Scottsdale Rd #117, open 7 days by appointment.",
   alternates: { canonical: "/contact" },
 };
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
             <Socials />
           </aside>
           <div id="consult" className="reveal scroll-mt-[calc(var(--header-h)+1.5rem)]" data-delay="1">
-            <span className="label">Request a free consultation</span>
+            <span className="label">Request a consultation</span>
             <h2 className="display text-h-md mt-2 mb-6">Tell Ms Manae about your hair</h2>
             <ContactForm />
           </div>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const TRUST = [
-  ["15+", "Years of extensions"],
+  ["28+", "Years of extensions"],
   ["4", "Methods, one specialist"],
   ["Best of 2019", "Scottsdale hair extension technician"],
   ["★★★★★", "Rated by clients on Google"],
@@ -46,7 +46,7 @@ export default function HomePage() {
         </div>
         <div className="wrap relative z-10">
           <div className="hero-stagger max-w-[720px] pt-[clamp(3rem,8vw,6rem)] pb-[clamp(3rem,7vw,5.5rem)]">
-            <span className="label !text-gold">Scottsdale’s finest hair extensions · Est. 15+ years</span>
+            <span className="label !text-gold">Scottsdale’s finest hair extensions · Est. 28+ years</span>
             <h1 className="display text-h-xl !text-cream my-5">
               Love Your <em className="text-gold">Loxx</em>
               <span className="block mt-3 font-display font-light tracking-normal text-[clamp(1.3rem,2.4vw,2rem)] leading-tight text-cream-2">
@@ -59,7 +59,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-8">
               <div className="flex flex-col gap-1">
-                <small className="font-label text-[0.7rem] tracking-[0.22em] uppercase text-gold">Free consultations · Extensions from {BIZ.startingPrice}</small>
+                <small className="font-label text-[0.7rem] tracking-[0.22em] uppercase text-gold">Consultations · Extensions from {BIZ.startingPrice}</small>
                 <a href={`tel:${BIZ.cellTel}`} className="font-label font-medium text-[clamp(1.5rem,2.8vw,2rem)] tracking-[0.01em] leading-none text-cream hover:text-gold">
                   {BIZ.cellDisplay}
                 </a>
@@ -127,7 +127,7 @@ export default function HomePage() {
               over the years.
             </p>
             <Link href="/extensions" className="link mt-2">
-              Compare the four methods <ArrowIcon />
+              See the four methods <ArrowIcon />
             </Link>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function HomePage() {
               </h2>
             </div>
             <Link href="/extensions" className="link">
-              Full comparison <ArrowIcon />
+              All methods <ArrowIcon />
             </Link>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-cream-3 border border-cream-3">
@@ -168,7 +168,7 @@ export default function HomePage() {
                   <dd className="text-ink-3">{m.lasts}</dd>
                 </dl>
                 <p className="text-[0.95rem] text-ink-3 flex-1">{m.short}</p>
-                <Link href={`/extensions#${m.id}`} className="link self-start">
+                <Link href={`/extensions/${m.id}`} className="link self-start">
                   Learn more<span className="sr-only"> about {m.name.toLowerCase()} extensions</span> <ArrowIcon />
                 </Link>
               </article>
@@ -256,7 +256,7 @@ export default function HomePage() {
             </h2>
             <p className="text-lead text-ink-3 mb-4">It’s my honor to be given the opportunity to make each and every one of my clients a more fabulous version of themselves.</p>
             <p className="text-ink-3 mb-6">
-              I have specialized in hair extensions for over 15 years, and I’ve worn them myself for just as long. That first-hand experience is why
+              I have specialized in hair extensions for over 28 years, and I’ve worn them myself for just as long. That first-hand experience is why
               my applications are more secure, more comfortable and better hidden than most you’ll find.
             </p>
             <ul className="grid gap-3 mb-8">
@@ -282,7 +282,7 @@ export default function HomePage() {
             <h2 className="display text-h-lg mt-3 mb-5">
               Good to know before <em>you book.</em>
             </h2>
-            <p className="text-stone mb-4">Straight answers to the questions I hear most. Can’t find yours? Ask during your free consultation.</p>
+            <p className="text-stone mb-4">Straight answers to the questions I hear most. Can’t find yours? Ask during your consultation.</p>
             <Link href="/faq" className="link">
               All questions <ArrowIcon />
             </Link>

@@ -53,7 +53,7 @@ export function Header() {
             </span>
           </div>
           <div className="hidden xl:flex gap-x-3">
-            <span className="whitespace-nowrap">Free consultations</span>
+            <span className="whitespace-nowrap">Consultations</span>
             <span className="whitespace-nowrap">
               <span className="text-gold mr-3">·</span>
               <a href={`tel:${BIZ.salonTel}`} className="hover:text-gold">
@@ -74,19 +74,43 @@ export function Header() {
         <div className="wrap grid grid-cols-[auto_auto] xl:grid-cols-[auto_1fr_auto] items-center gap-8 h-[var(--header-h)] transition-[height] duration-300">
           <Brand />
           <nav className="hidden xl:flex justify-center gap-[clamp(0.9rem,1.8vw,1.6rem)]" aria-label="Primary">
-            {NAV.map(({ href, label }) => {
+            {NAV.map(({ href, label, children }) => {
               const current = isCurrent(href);
+              const linkClass = `relative py-1.5 whitespace-nowrap font-label font-medium text-[0.7rem] tracking-[0.14em] uppercase transition-colors hover:text-cream after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px after:bg-gold after:origin-left after:transition-transform after:duration-300 ${
+                current ? "text-cream after:scale-x-100" : "text-cream-2 after:scale-x-0 hover:after:scale-x-100"
+              }`;
+              if (!children) {
+                return (
+                  <Link key={href} href={href} aria-current={current ? "page" : undefined} className={linkClass}>
+                    {label}
+                  </Link>
+                );
+              }
               return (
-                <Link
-                  key={href}
-                  href={href}
-                  aria-current={current ? "page" : undefined}
-                  className={`relative py-1.5 whitespace-nowrap font-label font-medium text-[0.7rem] tracking-[0.14em] uppercase transition-colors hover:text-cream after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px after:bg-gold after:origin-left after:transition-transform after:duration-300 ${
-                    current ? "text-cream after:scale-x-100" : "text-cream-2 after:scale-x-0 hover:after:scale-x-100"
-                  }`}
-                >
-                  {label}
-                </Link>
+                <div key={href} className="group relative">
+                  <Link href={href} aria-current={current ? "page" : undefined} className={`${linkClass} inline-flex items-center gap-1.5`}>
+                    {label}
+                    <svg aria-hidden="true" viewBox="0 0 10 6" className="w-2 h-2 fill-none stroke-current stroke-[1.5] transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180">
+                      <path d="M1 1l4 4 4-4" />
+                    </svg>
+                  </Link>
+                  <ul className="absolute left-1/2 top-full -translate-x-1/2 pt-3 min-w-[12rem] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-[opacity,transform,visibility] duration-200">
+                    <li className="bg-ink border border-white/10 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] py-2">
+                      {children.map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          aria-current={pathname === c.href ? "page" : undefined}
+                          className={`block px-5 py-2.5 whitespace-nowrap font-label font-medium text-[0.7rem] tracking-[0.14em] uppercase transition-colors hover:text-gold hover:bg-white/[0.04] ${
+                            pathname === c.href ? "text-gold" : "text-cream-2"
+                          }`}
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </li>
+                  </ul>
+                </div>
               );
             })}
           </nav>
@@ -122,19 +146,38 @@ export function Header() {
         }`}
       >
         <nav aria-label="Mobile">
-          {NAV.map(({ href, label }, i) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={isCurrent(href) ? "page" : undefined}
-              onClick={() => setOpen(false)}
-              style={{ transitionDelay: open ? `${0.06 + i * 0.05}s` : "0s" }}
-              className={`block py-[3px] border-b border-white/[0.08] font-display text-[clamp(1.6rem,min(7.5vw,4.4vh),2.75rem)] leading-tight transition-[opacity,transform] duration-300 ${
-                open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-              } ${isCurrent(href) ? "text-gold font-light" : "text-cream"}`}
-            >
-              {label}
-            </Link>
+          {NAV.map(({ href, label, children }, i) => (
+            <div key={href} className="border-b border-white/[0.08]">
+              <Link
+                href={href}
+                aria-current={isCurrent(href) ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${0.06 + i * 0.05}s` : "0s" }}
+                className={`block py-[3px] font-display text-[clamp(1.5rem,min(7vw,4vh),2.6rem)] leading-tight transition-[opacity,transform] duration-300 ${
+                  open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                } ${isCurrent(href) ? "text-gold font-light" : "text-cream"}`}
+              >
+                {label}
+              </Link>
+              {children && (
+                <div className="flex flex-wrap gap-x-5 gap-y-1 pb-3 -mt-0.5">
+                  {children.map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      aria-current={pathname === c.href ? "page" : undefined}
+                      onClick={() => setOpen(false)}
+                      style={{ transitionDelay: open ? `${0.1 + i * 0.05}s` : "0s" }}
+                      className={`font-label text-[0.72rem] tracking-[0.16em] uppercase transition-[opacity,transform] duration-300 ${
+                        open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                      } ${pathname === c.href ? "text-gold" : "text-cream-2"}`}
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
         <div className="mt-auto pt-5">

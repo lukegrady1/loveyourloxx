@@ -17,7 +17,7 @@ export function Cta({
     <section className="cta-glow relative overflow-hidden bg-terracotta text-cream">
       <div className="wrap relative grid md:grid-cols-[1fr_auto] gap-8 items-center py-[clamp(3rem,6vw,5rem)]">
         <div className="reveal">
-          <span className="label !text-blush">Free consultation</span>
+          <span className="label !text-blush">Consultation</span>
           <h2 className="display text-h-lg !text-cream mt-3 [&_em]:text-blush">{title}</h2>
           <p className="text-[#fbe9e0] mt-3 max-w-[56ch]">{body}</p>
         </div>

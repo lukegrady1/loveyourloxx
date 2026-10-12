@@ -7,12 +7,12 @@ import { PageHero } from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "About Ms Manae",
   description:
-    "Meet Ms Manae, Scottsdale hair extension specialist with 15+ years of experience. Graduate of Earl’s Academy, certified by The Hair Shop and Hot Heads, Best of Scottsdale 2019.",
+    "Meet Ms Manae, Scottsdale hair extension specialist with 28+ years of experience. Graduate of Earl’s Academy, certified by The Hair Shop and Hot Heads, Best of Scottsdale 2019.",
   alternates: { canonical: "/about" },
 };
 
 const CREDS = [
-  <><strong>15+ years</strong> specializing exclusively in hair extensions</>,
+  <><strong>28+ years</strong> specializing exclusively in hair extensions</>,
   <>Graduate of <strong>Earl’s Academy</strong> (now Avalon)</>,
   <>Certified by <strong>The Hair Shop</strong> and <strong>Hot Heads</strong></>,
   <><strong>Best of Scottsdale 2019</strong>, Hair Extension Technician</>,
@@ -49,7 +49,7 @@ export default function AboutPage() {
               I truly hope to meet you in the future and make you a more <strong>fabulous</strong> you.
             </p>
             <p>
-              I have been doing hair extensions for over 15 years, and you will not find anyone who takes more pride in her work. I am a graduate of
+              I have been doing hair extensions for over 28 years, and you will not find anyone who takes more pride in her work. I am a graduate of
               Earl’s Academy (now Avalon) and have been certified in hair extensions by The Hair Shop and the Hot Heads hair extension company. Over
               the years I’ve worked with many color lines, extension methods, styling tools and hair care products, and I’m always studying what’s
               new.

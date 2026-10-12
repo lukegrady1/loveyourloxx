@@ -8,12 +8,12 @@ import { BIZ, CONSULT_HREF } from "@/data/site";
 export const metadata: Metadata = {
   title: "Book Your Appointment Online",
   description:
-    "Already spoken with Ms Manae? Book your hair extension install, maintenance or removal online. Scottsdale, open 7 days, 9am to 6pm, by appointment. New clients start with a free consultation.",
+    "Already spoken with Ms Manae? Book your hair extension install, maintenance or removal online. Scottsdale, open 7 days, 9am to 6pm, by appointment. New clients start with a consultation.",
   alternates: { canonical: "/book" },
 };
 
 const SERVICES = [
-  ["Free consultation", "30 min"],
+  ["Consultation", "30 min"],
   ["Micro bead extensions, full set", "2.5 hrs"],
   ["Fusion extensions, full set", "3 hrs"],
   ["Tape-in extensions, install", "1 hr"],
@@ -25,7 +25,7 @@ const SERVICES = [
 
 const NOTES = [
   "Book the service you and Ms Manae agreed on during your call. If you’re not sure which one, text her and she’ll point you to the right calendar.",
-  "Need a consultation in person first? Book the free consultation and bring inspiration photos if you have them.",
+  "Need a consultation in person first? Book the consultation and bring inspiration photos if you have them.",
   "Removals are free when you come in on schedule, around one inch of regrowth.",
 ];
 

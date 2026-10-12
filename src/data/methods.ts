@@ -6,7 +6,8 @@ export type Method = {
   name: string;
   aka: string;
   img: string;
-  img2?: string;
+  /** Further photos shown on the method page, in order. */
+  extraImages?: string[];
   alt: string;
   time: string;
   lasts: string;
@@ -22,9 +23,9 @@ export const METHODS: Method[] = [
     num: "01",
     name: "Micro Bead",
     aka: "also called micro link",
-    img: "/img/gallery/ba-11.webp",
-    img2: "/img/method-microbead.webp",
-    alt: "Micro bead hair extensions being applied strand by strand",
+    img: "/img/micro-bead-install.webp",
+    extraImages: ["/img/gallery/ba-11.webp"],
+    alt: "Micro bead hair extensions clamped at the root, with the top section clipped up",
     time: "1.5 – 2.5 hrs",
     lasts: "3 – 4 months",
     removal: "20 – 30 min",
@@ -39,8 +40,8 @@ export const METHODS: Method[] = [
     num: "02",
     name: "Fusion",
     aka: "keratin strand by strand",
-    img: "/img/method-fusion.webp",
-    alt: "Keratin fusion hair extension strands",
+    img: "/img/fusion-install.webp",
+    alt: "Fusion hair extensions, with the top section pinned up to show the strands",
     time: "2 – 3 hrs",
     lasts: "3 – 4 months",
     removal: "30 – 45 min",
@@ -48,37 +49,37 @@ export const METHODS: Method[] = [
       "The original and most popular extension method. Each strand is bonded with a small keratin tip that moves and blends like your own hair.",
     best: "Maximum movement and the most natural blend; zero maintenance between sets.",
     caption:
-      "Keratin fusion strands. The bond is the size of a grain of rice and shaped flat to your hair.",
+      "A fusion set in progress. Each strand is bonded individually and sits flat against your own hair.",
   },
   {
     id: "tape-in",
     num: "03",
     name: "Tape-Ins",
     aka: "semi-permanent wefts",
-    img: "/img/method-tapein.webp",
-    img2: "/img/method-tapein-2.webp",
-    alt: "Tape-in hair extension wefts",
+    img: "/img/tape-in-weft.webp",
+    alt: "A tape-in weft sandwiched around a thin section of natural hair",
     time: "30 – 60 min",
     lasts: "Up to 2 months",
     removal: "Re-taped at maintenance",
     short:
       "Pre-taped wefts sandwiched around thin sections of your hair. The fastest install, and the wefts can be re-taped and reused up to four times.",
     best: "Quick installs, fine hair, and anyone who wants a lighter-feeling set.",
-    caption: "Tape-in wefts, before application. Thin, flat and lightweight.",
+    caption: "A tape-in weft in place. Thin, flat and lightweight.",
   },
   {
     id: "hand-tied",
     num: "04",
     name: "Hand Tied",
     aka: "braidless weft",
-    img: "/img/method-handtied.webp",
-    alt: "Hand tied weft hair extensions sewn onto a micro bead track",
+    img: "/img/hand-tied-result.webp",
+    extraImages: ["/img/hand-tied-weft-beads.webp", "/img/hand-tied-weft-sewn.webp", "/img/hand-tied-bead-row.webp"],
+    alt: "Hand tied weft hair extensions lifted to show the rows underneath",
     time: "1.5 – 2 hrs",
     lasts: "4 – 6 weeks",
     removal: "Quick and gentle",
     short:
       "Long wefts of hair sewn onto a flat row of micro beads. No braids, no glue, and the kindest method on your natural hair.",
     best: "Adding thickness fast; clients who want a gentle, braid-free weft.",
-    caption: "A hand tied weft sewn onto its micro bead track.",
+    caption: "Hand tied wefts: the rows of beads they sit on, a weft sewn onto its track, and the finished result.",
   },
 ];

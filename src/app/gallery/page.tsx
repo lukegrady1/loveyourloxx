@@ -41,7 +41,7 @@ export default function GalleryPage() {
       </section>
       <Cta
         title={<>Ready to be the <em>next</em> one?</>}
-        body="Call or text for a free consultation. Bring inspiration photos if you have them, and we’ll talk about what your hair can do."
+        body="Call or text for a consultation. Bring inspiration photos if you have them, and we’ll talk about what your hair can do."
       />
     </>
   );

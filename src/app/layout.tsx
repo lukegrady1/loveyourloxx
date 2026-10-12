@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Love Your Loxx",
   },
   description:
-    "Scottsdale’s finest hair extensions. Micro bead, fusion, tape-in and hand tied extensions by Ms Manae, 15+ years of experience. Free consultations. Call or text 480-234-7068.",
+    "Scottsdale’s finest hair extensions. Micro bead, fusion, tape-in and hand tied extensions by Ms Manae, 28+ years of experience. Consultations by phone or in person. Call or text 480-234-7068.",
   openGraph: {
     type: "website",
     siteName: "Love Your Loxx",
@@ -32,7 +32,7 @@ const jsonLd = {
   name: BIZ.name,
   alternateName: `${BIZ.name} ${BIZ.tagline}`,
   description:
-    "Professional hair extensions in Scottsdale, Arizona. Micro bead, fusion, tape-in and hand tied methods by Ms Manae, with 15+ years of experience.",
+    "Professional hair extensions in Scottsdale, Arizona. Micro bead, fusion, tape-in and hand tied methods by Ms Manae, with 28+ years of experience.",
   url: `${SITE_URL}/`,
   telephone: BIZ.cellTel,
   image: `${SITE_URL}/og.jpg`,

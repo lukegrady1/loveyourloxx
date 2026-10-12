@@ -7,9 +7,9 @@ import { PageHero } from "@/components/PageHero";
 import { BIZ, CONSULT_HREF } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Hair Extension Pricing | From $500, Free Consultations",
+  title: "Hair Extension Pricing | From $500",
   description:
-    "Hair extensions in Scottsdale start at $500 and depend on the method and amount of hair. Free consultations, quotes over the phone, premium reusable hair, free standard removal. Call 480-234-7068.",
+    "Hair extensions in Scottsdale start at $500 and depend on the method and amount of hair. Consultations and quotes over the phone, premium reusable hair, free standard removal. Call 480-234-7068.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -29,7 +29,7 @@ const VARIABLES = [
 ];
 
 const POLICIES = [
-  ["Consultations are free", "Always. Over the phone or in person at the salon. You will never be charged to find out what your options are."],
+  ["Consultations", "Over the phone or in person at the salon. Ms Manae talks through your hair, your options and your price with every new client before anything is booked."],
   ["Starting price", `Full sets start at ${BIZ.startingPrice}. The final price depends on the method, the amount of hair you need and the length and color you choose, and I’ll confirm it with you before you book.`],
   ["Standard removals are free", "A normal removal takes 20 to 45 minutes depending on the method and is included. I don’t use acetone-based removers, so it’s gentle on your hair."],
   ["Overdue removals", "If a set is worn past the recommended inch of regrowth, the new growth can mat and the removal can take up to two hours. Those removals are charged at $50 per hour. Coming in on schedule avoids this entirely."],
@@ -44,7 +44,7 @@ export default function PricingPage() {
       <PageHero
         label="Pricing"
         title={<>Competitive pricing. <em>Premium hair.</em></>}
-        lead={`Extensions start at ${BIZ.startingPrice}. Every head of hair is different, so your exact price depends on the method, how much hair you need and what you want done. Call or text, or request a consultation, and I’ll call you with an accurate quote before you book.`}
+        lead={`Extensions start at ${BIZ.startingPrice}. Every head of hair is different, so your exact price depends on the method, how much hair you need and what you want done. Call or text, or request a consultation.`}
         image="/img/hero-dark.webp"
         center
       >

@@ -31,7 +31,7 @@ export const GENERAL_FAQ: FaqItem[] = [
     q: "Which method is best for my hair?",
     a: (
       <>
-        <p>That depends on a few things, and the only way to know for sure is a free consultation. We’ll look at:</p>
+        <p>That depends on a few things, and the only way to know for sure is a consultation. We’ll look at:</p>
         <ul>
           <li>
             <strong>Your natural hair type and density.</strong> This is the most important factor, so you wear a system your hair can support
