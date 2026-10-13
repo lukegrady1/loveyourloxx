@@ -3,11 +3,12 @@ import Image from "next/image";
 import { Cta } from "@/components/Cta";
 import { CheckIcon } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
+import { BIZ } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About Ms Manae",
   description:
-    "Meet Ms Manae, Scottsdale hair extension specialist with 28+ years of experience. Graduate of Earl’s Academy, certified by The Hair Shop and Hot Heads, multiple-time Best of Scottsdale winner.",
+    "Meet Ms Manae, Scottsdale hair extension specialist with 28+ years of experience. Graduate of Earl’s Academy, certified by The Hair Shop and Hot Heads, four-time Best of Scottsdale winner and a 2026 Top 3 hair extension salon in Scottsdale.",
   alternates: { canonical: "/about" },
 };
 
@@ -15,11 +16,17 @@ const CREDS = [
   <><strong>28+ years</strong> specializing exclusively in hair extensions</>,
   <>Graduate of <strong>Earl’s Academy</strong> (now Avalon)</>,
   <>Certified by <strong>The Hair Shop</strong> and <strong>Hot Heads</strong></>,
-  <><strong>Multiple-time Best of Scottsdale winner</strong>, Hair Extension Technician</>,
+  <><strong>Four-time Best of Scottsdale winner</strong>, Hair Extension Technician</>,
+  <><strong>Top 3 hair extension salon</strong> in Scottsdale for 2026, ranked by BusinessRate</>,
   <>Four methods: micro bead, fusion, tape-in and hand tied</>,
   <>Gentle, acetone-free removals that protect your natural hair</>,
   <>Re-tipping service so quality hair can be reused set after set</>,
   <>Every client leaves knowing exactly how to care for her hair</>,
+];
+
+const AWARDS = [
+  { title: "Best of Scottsdale, Hair Extension Technician", detail: "Scottsdale Award Program · 2019, 2022, 2023 and 2024" },
+  { title: "Top 3 Hair Extension Salon in Scottsdale", detail: "BusinessRate Benchmark award, based on Google reviews · 2026" },
 ];
 
 export default function AboutPage() {
@@ -92,6 +99,61 @@ export default function AboutPage() {
             <div className="callout">
               <strong>A note on quality.</strong> The hair I supply is premium and reusable. Cheap hair looks great in the package and mattes once its
               silicone coating washes off. I don’t use it, and I’ll explain how to spot it.
+            </div>
+            <figure className="m-0 mt-8">
+              <Image
+                src="/img/salon-interior.webp"
+                alt="Inside the Love Your Loxx salon on North Scottsdale Road: styling chairs on a polished concrete floor"
+                width={1073}
+                height={460}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="w-full object-cover"
+              />
+              <figcaption className="font-label text-[0.7rem] tracking-[0.2em] uppercase text-stone mt-3">The salon · {BIZ.street}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-[clamp(4rem,9vw,8rem)]">
+        <div className="wrap grid lg:grid-cols-[5fr_7fr] gap-[clamp(2.5rem,6vw,6rem)] items-center">
+          <div className="reveal">
+            <span className="label">Recognition</span>
+            <h2 className="display text-h-lg mt-3 mb-5">
+              Best of Scottsdale, <em>year after year.</em>
+            </h2>
+            <p className="text-lead text-ink-3 mb-4">The plaques on the salon wall are the part of this job I’m proudest of, because every one of them came from clients.</p>
+            <p className="text-ink-3 mb-8">
+              Love Your Loxx has been named Best of Scottsdale in the Hair Extension Technician category four times, and in 2026 BusinessRate ranked
+              it one of the top three hair extension salons in Scottsdale based on Google reviews.
+            </p>
+            <ul className="grid gap-4 m-0 p-0 list-none">
+              {AWARDS.map((a) => (
+                <li key={a.title} className="border-t border-ink/10 pt-4">
+                  <strong className="block font-display font-normal text-ink text-[1.15rem]">{a.title}</strong>
+                  <span className="text-ink-3 text-[0.95rem]">{a.detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="reveal grid grid-cols-2 gap-4 md:gap-6 items-end" data-delay="1">
+            <Image
+              src="/img/awards-best-of-scottsdale.webp"
+              alt="Four Best of Scottsdale plaques for Hair Extension Technician, from 2019, 2022, 2023 and 2024, on shelves in the salon"
+              width={1200}
+              height={1600}
+              sizes="(max-width: 1024px) 50vw, 30vw"
+              className="w-full aspect-[3/4] object-cover md:mb-10"
+            />
+            <div className="frame-offset relative">
+              <Image
+                src="/img/award-top3-2026.webp"
+                alt="BusinessRate Top 3 2026 award plaque for Love Your Loxx Hair Extension Salon, Scottsdale"
+                width={1200}
+                height={1600}
+                sizes="(max-width: 1024px) 50vw, 30vw"
+                className="w-full aspect-[3/4] object-cover"
+              />
             </div>
           </div>
         </div>

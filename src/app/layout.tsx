@@ -64,6 +64,10 @@ const jsonLd = {
   ],
   sameAs: Object.values(BIZ.social),
   founder: { "@type": "Person", name: "Ms Manae" },
+  award: [
+    "Best of Scottsdale, Hair Extension Technician (2019, 2022, 2023, 2024)",
+    "BusinessRate Top 3 Hair Extension Salon in Scottsdale (2026)",
+  ],
   areaServed: ["Scottsdale", "Phoenix", "Tempe", "Paradise Valley", "Arizona"],
 };
 

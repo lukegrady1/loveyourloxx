@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const TRUST = [
   ["28+", "Years of extensions"],
   ["4", "Methods, one specialist"],
-  ["Best of Scottsdale", "Multiple-time winner, hair extension technician"],
+  ["Best of Scottsdale", "Four-time winner, hair extension technician"],
   ["★★★★★", "Rated by clients on Google"],
 ];
 
@@ -260,7 +260,7 @@ export default function HomePage() {
               my applications are more secure, more comfortable and better hidden than most you’ll find.
             </p>
             <ul className="grid gap-3 mb-8">
-              {["Graduate of Earl’s Academy (now Avalon)", "Certified by The Hair Shop and Hot Heads", "Multiple-time Best of Scottsdale winner, Hair Extension Technician"].map((c) => (
+              {["Graduate of Earl’s Academy (now Avalon)", "Certified by The Hair Shop and Hot Heads", "Four-time Best of Scottsdale winner, Hair Extension Technician", "Top 3 hair extension salon in Scottsdale for 2026 (BusinessRate)"].map((c) => (
                 <li key={c} className="grid grid-cols-[22px_1fr] gap-3 items-start text-[0.98rem] text-ink-3">
                   <CheckIcon className="w-[18px] h-[18px] text-terracotta mt-1" />
                   <span>{c}</span>
