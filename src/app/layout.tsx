@@ -23,7 +23,15 @@ export const metadata: Metadata = {
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Love Your Loxx — Hair Extensions by Ms Manae, Scottsdale" }],
   },
   twitter: { card: "summary_large_image", images: ["/og.jpg"] },
-  icons: { icon: "/img/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 const jsonLd = {
@@ -36,6 +44,7 @@ const jsonLd = {
   url: `${SITE_URL}/`,
   telephone: BIZ.cellTel,
   image: `${SITE_URL}/og.jpg`,
+  logo: `${SITE_URL}/android-chrome-512x512.png`,
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
