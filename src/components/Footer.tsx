@@ -67,7 +67,7 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} {BIZ.legalName} · Scottsdale, Arizona
           </span>
-          <span>Best of Scottsdale 2019 · Hair Extension Technician</span>
+          <span>Multiple-time Best of Scottsdale winner · Hair Extension Technician</span>
         </div>
       </div>
     </footer>

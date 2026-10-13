@@ -7,7 +7,7 @@ import { PageHero } from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "About Ms Manae",
   description:
-    "Meet Ms Manae, Scottsdale hair extension specialist with 28+ years of experience. Graduate of Earl’s Academy, certified by The Hair Shop and Hot Heads, Best of Scottsdale 2019.",
+    "Meet Ms Manae, Scottsdale hair extension specialist with 28+ years of experience. Graduate of Earl’s Academy, certified by The Hair Shop and Hot Heads, multiple-time Best of Scottsdale winner.",
   alternates: { canonical: "/about" },
 };
 
@@ -15,7 +15,7 @@ const CREDS = [
   <><strong>28+ years</strong> specializing exclusively in hair extensions</>,
   <>Graduate of <strong>Earl’s Academy</strong> (now Avalon)</>,
   <>Certified by <strong>The Hair Shop</strong> and <strong>Hot Heads</strong></>,
-  <><strong>Best of Scottsdale 2019</strong>, Hair Extension Technician</>,
+  <><strong>Multiple-time Best of Scottsdale winner</strong>, Hair Extension Technician</>,
   <>Four methods: micro bead, fusion, tape-in and hand tied</>,
   <>Gentle, acetone-free removals that protect your natural hair</>,
   <>Re-tipping service so quality hair can be reused set after set</>,
@@ -37,7 +37,7 @@ export default function AboutPage() {
           <div className="reveal frame-offset relative">
             <Image src="/img/manae-at-work.webp" alt="Ms Manae applying hair extensions in her Scottsdale salon" width={1242} height={1369} sizes="(max-width: 768px) 100vw, 50vw" className="w-full aspect-[4/5] object-cover" priority />
             <div className="absolute right-0 md:-right-4 bottom-8 w-[120px] md:w-[150px] bg-cream p-2 shadow-[0_20px_50px_rgba(27,25,23,0.2)] rotate-3">
-              <Image src="/img/award-best-of-2019.webp" alt="Best of Scottsdale 2019 award, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
+              <Image src="/img/award-best-of-2019.webp" alt="Best of Scottsdale award plaque, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
             </div>
           </div>
           <div className="reveal prose-lyl" data-delay="1">

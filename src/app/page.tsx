@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 const TRUST = [
   ["28+", "Years of extensions"],
   ["4", "Methods, one specialist"],
-  ["Best of 2019", "Scottsdale hair extension technician"],
+  ["Best of Scottsdale", "Multiple-time winner, hair extension technician"],
   ["★★★★★", "Rated by clients on Google"],
 ];
 
-const HOME_PICKS = ["ba-04", "ba-07", "ba-24", "ba-29", "ba-32", "ba-13", "ba-52", "ba-16", "ba-33", "ba-39"];
+const HOME_PICKS = ["ba-57", "ba-58", "ba-60", "ba-61", "ba-62", "ba-64", "ba-65", "ba-66", "ba-70", "ba-63"];
 
 export default function HomePage() {
   const all = getGalleryImages();
@@ -246,7 +246,7 @@ export default function HomePage() {
           <div className="reveal frame-offset relative">
             <Image src="/img/manae-at-work.webp" alt="Ms Manae applying hair extensions in her Scottsdale salon" width={1242} height={1369} sizes="(max-width: 768px) 100vw, 50vw" className="w-full aspect-[4/5] object-cover" />
             <div className="absolute right-0 md:-right-4 bottom-8 w-[120px] md:w-[150px] bg-cream p-2 shadow-[0_20px_50px_rgba(27,25,23,0.2)] rotate-3">
-              <Image src="/img/award-best-of-2019.webp" alt="Best of Scottsdale 2019 award, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
+              <Image src="/img/award-best-of-2019.webp" alt="Best of Scottsdale award plaque, Hair Extension Technician" width={1200} height={1600} sizes="150px" className="aspect-[3/4] object-cover" />
             </div>
           </div>
           <div className="reveal" data-delay="1">
@@ -260,7 +260,7 @@ export default function HomePage() {
               my applications are more secure, more comfortable and better hidden than most you’ll find.
             </p>
             <ul className="grid gap-3 mb-8">
-              {["Graduate of Earl’s Academy (now Avalon)", "Certified by The Hair Shop and Hot Heads", "Best of Scottsdale 2019, Hair Extension Technician"].map((c) => (
+              {["Graduate of Earl’s Academy (now Avalon)", "Certified by The Hair Shop and Hot Heads", "Multiple-time Best of Scottsdale winner, Hair Extension Technician"].map((c) => (
                 <li key={c} className="grid grid-cols-[22px_1fr] gap-3 items-start text-[0.98rem] text-ink-3">
                   <CheckIcon className="w-[18px] h-[18px] text-terracotta mt-1" />
                   <span>{c}</span>
