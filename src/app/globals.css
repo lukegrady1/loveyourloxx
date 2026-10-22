@@ -59,7 +59,14 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  /*
+    scroll-padding-top keeps anything scrolled into view clear of the fixed
+    header. That includes the embedded GHL booking page: on each step change
+    it scrolls its own step header into view, the browser carries that scroll
+    up to this document, and without the padding the iframe's top edge lands
+    under the header, hiding the Back link and step title.
+  */
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
   body {
     @apply bg-cream text-ink-2 font-body antialiased overflow-x-hidden;
     font-size: 17px;
