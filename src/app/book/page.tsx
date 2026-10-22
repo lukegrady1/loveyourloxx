@@ -49,39 +49,14 @@ export default function BookPage() {
       </PageHero>
 
       <section className="py-[clamp(3rem,7vw,6rem)]">
-        <div className="wrap grid lg:grid-cols-[4fr_8fr] gap-[clamp(2.5rem,6vw,5rem)] items-start">
-          <aside className="reveal grid gap-8 lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
-            <div>
-              <span className="label">What you can book</span>
-              <h2 className="display text-h-md mt-2 mb-5">
-                Every service, <em>one calendar.</em>
-              </h2>
-              <ul className="grid gap-2.5">
-                {SERVICES.map(([name, time]) => (
-                  <li key={name} className="grid grid-cols-[22px_1fr_auto] gap-3 items-baseline text-[0.97rem] text-ink-3 border-b border-cream-3 pb-2.5">
-                    <CheckIcon className="w-[18px] h-[18px] text-terracotta self-center" />
-                    <span>{name}</span>
-                    <span className="font-label text-[0.68rem] tracking-[0.14em] uppercase text-stone whitespace-nowrap">{time}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="grid gap-4 bg-cream-2 border-l-2 border-terracotta p-6">
-              {NOTES.map((n) => (
-                <p key={n} className="text-ink-3 text-[0.95rem] m-0">
-                  {n}
-                </p>
-              ))}
-              <Link href="/pricing" className="link self-start">
-                How pricing works <ArrowIcon />
-              </Link>
-            </div>
-            <p className="text-stone text-[0.9rem] m-0">
-              {BIZ.hours}, {BIZ.hoursNote.toLowerCase()}. {BIZ.street}, {BIZ.city}.
-            </p>
-          </aside>
-
-          <div className="reveal" data-delay="1">
+        <div className="wrap grid gap-[clamp(2.5rem,6vw,5rem)]">
+          {/*
+            The GHL booking page lays its date step out as three panes
+            (calendar, time slots, booking summary), so it needs the full
+            container width on desktop. The service list and notes sit
+            below it rather than beside it.
+          */}
+          <div className="reveal">
             <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 bg-cream-2 border-l-2 border-terracotta px-6 py-5 mb-6">
               <p className="text-ink-3 m-0 max-w-[52ch]">
                 <strong className="text-ink">New here?</strong> Pricing depends on your hair and how much you need, so Ms Manae talks to every new
@@ -105,6 +80,39 @@ export default function BookPage() {
               </Link>
               .
             </p>
+          </div>
+
+          <div className="reveal grid lg:grid-cols-2 gap-[clamp(2.5rem,6vw,5rem)] items-start" data-delay="1">
+            <div>
+              <span className="label">What you can book</span>
+              <h2 className="display text-h-md mt-2 mb-5">
+                Every service, <em>one calendar.</em>
+              </h2>
+              <ul className="grid gap-2.5">
+                {SERVICES.map(([name, time]) => (
+                  <li key={name} className="grid grid-cols-[22px_1fr_auto] gap-3 items-baseline text-[0.97rem] text-ink-3 border-b border-cream-3 pb-2.5">
+                    <CheckIcon className="w-[18px] h-[18px] text-terracotta self-center" />
+                    <span>{name}</span>
+                    <span className="font-label text-[0.68rem] tracking-[0.14em] uppercase text-stone whitespace-nowrap">{time}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="grid gap-8">
+              <div className="grid gap-4 bg-cream-2 border-l-2 border-terracotta p-6">
+                {NOTES.map((n) => (
+                  <p key={n} className="text-ink-3 text-[0.95rem] m-0">
+                    {n}
+                  </p>
+                ))}
+                <Link href="/pricing" className="link self-start">
+                  How pricing works <ArrowIcon />
+                </Link>
+              </div>
+              <p className="text-stone text-[0.9rem] m-0">
+                {BIZ.hours}, {BIZ.hoursNote.toLowerCase()}. {BIZ.street}, {BIZ.city}.
+              </p>
+            </div>
           </div>
         </div>
       </section>
