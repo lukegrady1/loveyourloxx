@@ -23,11 +23,11 @@ const CATEGORIES = [
 /* slug, category, name, price, minutes, description */
 const SERVICES = [
   ["consultation", "consultation", "Consultation", 0, 30, "Free. In-person consultation. Bring inspiration photos if you have them."],
-  ["micro-bead-extensions", "extensions", "Micro Bead Extensions (Full Set)", 500, 150, "Starting at $500. Final price quoted by Ms Manae on your call."],
-  ["fusion-extensions", "extensions", "Fusion Extensions (Full Set)", 500, 180, "Starting at $500. Final price quoted by Ms Manae on your call."],
-  ["tape-in-extensions", "extensions", "Tape-In Extensions (Install)", 500, 60, "Starting at $500. Final price quoted by Ms Manae on your call."],
-  ["hand-tied-extensions", "extensions", "Hand Tied Extensions (Full Set)", 500, 120, "Starting at $500. Final price quoted by Ms Manae on your call."],
-  ["tape-in-maintenance", "maintenance-removal", "Tape-In Maintenance (Re-tape)", 0, 60, "Price quoted by Ms Manae based on your set. Book after your call."],
+  ["micro-bead-extensions", "extensions", "Micro Bead Extensions (Full Set, $500+)", 500, 150, "Starting at $500. Final price quoted by Ms Manae on your call."],
+  ["fusion-extensions", "extensions", "Fusion Extensions (Full Set, $500+)", 500, 180, "Starting at $500. Final price quoted by Ms Manae on your call."],
+  ["tape-in-extensions", "extensions", "Tape-In Extensions (Install, $500+)", 500, 60, "Starting at $500. Final price quoted by Ms Manae on your call."],
+  ["hand-tied-extensions", "extensions", "Hand Tied Extensions (Full Set, $500+)", 500, 120, "Starting at $500. Final price quoted by Ms Manae on your call."],
+  ["tape-in-maintenance", "maintenance-removal", "Tape-In Maintenance (Re-tape, $500+)", 500, 60, "Starting at $500. Final price quoted by Ms Manae on your call."],
   ["extension-removal", "maintenance-removal", "Extension Removal ($75/hr)", 75, 45, "$75 per hour when you come in on schedule, around one inch of regrowth."],
   ["overdue-removal", "maintenance-removal", "Overdue Removal ($100/hr)", 100, 120, "$100 per hour for overdue sets. Allow up to two hours."],
 ].map(([slug, category, name, price, minutes, description]) => ({ slug, category, name, price, minutes, description }));
