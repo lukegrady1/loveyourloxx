@@ -31,11 +31,16 @@ export const BIZ = {
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.0215849167944!2d-111.9275991!3d33.4747888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0afc453188e5%3A0x2613b8dd36fabc6e!2sLove%20Your%20Loxx%20Hair%20Extension%20Salon!5e0!3m2!1sen!2sus!4v1790874607473!5m2!1sen!2sus",
   /**
-   * GoHighLevel online booking. The group widget lists every service calendar
-   * in the "Love Your Loxx Services" menu (sub-account ygfr7kWTS92ddkWf3UC8).
+   * GoHighLevel online booking: the *Services* module's main booking page
+   * (Calendars > Services > Booking pages) served from the sub-account's
+   * branded domain, so no agency domain shows anywhere. One page lists every
+   * service by category; the visitor picks the service, then a time.
+   * heightMode=full lets form_embed.js grow the iframe to the content and
+   * showHeader=false drops GHL's title bar. Sub-account ygfr7kWTS92ddkWf3UC8.
    */
-  bookingUrl: "https://api.leadconnectorhq.com/widget/groups/loveyourloxx-scottsdale",
-  bookingEmbedScript: "https://link.msgsndr.com/js/form_embed.js",
+  bookingUrl:
+    "https://book.loveyourloxxx.com/booking/love-your-loxx-hair-extension-salon-sf1jkxwi0rg?heightMode=full&showHeader=false",
+  bookingEmbedScript: "https://book.loveyourloxxx.com/js/form_embed.js",
 } as const;
 
 /** Primary call to action everywhere: the consultation request form on the contact page. */
