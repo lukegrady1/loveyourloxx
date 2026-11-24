@@ -1,10 +1,10 @@
 /**
  * Canonical origin used for absolute URLs (Open Graph image, sitemap, JSON-LD).
- * Resolved at build time: an explicit NEXT_PUBLIC_SITE_URL wins, then Netlify's
- * primary site URL (the *.netlify.app address now, the custom domain once attached),
- * then the production domain.
+ * The live domain is loveyourloxxx.com. NEXT_PUBLIC_SITE_URL can override it;
+ * Netlify's own `URL` is deliberately not used, so canonicals never point at a
+ * *.netlify.app address.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "https://loveyourloxxx.com").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://loveyourloxxx.com").replace(/\/$/, "");
 
 export const BIZ = {
   name: "Love Your Loxx",
